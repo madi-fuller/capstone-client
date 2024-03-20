@@ -1,0 +1,10 @@
+.header {
+    // background-color: #89A3B2;
+    &__logo {
+        padding: 1rem;
+        height: 9rem;
+    }
+    &__container {
+        display: flex;
+    }
+}
