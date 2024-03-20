@@ -14,11 +14,14 @@
     }
 
     &__subheading {
-        // text-transform: uppercase;
         font-weight: 600;
         color: #5E6073;
         font-size: 2.5rem;
         width: 50%;
         text-align: center;
+    }
+
+    &__pledge-container {
+        display: flex;
     }
 }
