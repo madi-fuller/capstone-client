@@ -2,9 +2,12 @@ import logo from "../../assets/logos/logo-no-image.png";
 import welcome from "../../assets/images/homepage-planet.png";
 import "./HomePage.scss";
 import PledgeForm from "../../components /PledgeForm/PledgeForm";
+import Header from "../../components /Header/Header";
 
 function HomePage() {
     return (
+        <div>
+            <Header />
         <div className="homepage">
             <div className="homepage__logo-container">
             <img className="homepage__logo" src={logo} alt="WasteLess logo" />
@@ -16,6 +19,7 @@ function HomePage() {
             <img className="homepage__image" src={welcome} alt="globe saying hi"/>
             <PledgeForm />
             </div>
+        </div>
         </div>
     )
 }
