@@ -1,0 +1,24 @@
+.homepage {
+    padding-top: 4rem;
+    padding-left: 5rem;
+    background-color: #EEF0E5;
+    
+    &__logo {
+        height: 10rem;
+        
+    }
+
+    &__logo-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__subheading {
+        // text-transform: uppercase;
+        font-weight: 600;
+        color: #5E6073;
+        font-size: 2.5rem;
+        width: 50%;
+        text-align: center;
+    }
+}
