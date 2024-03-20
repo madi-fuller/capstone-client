@@ -1,0 +1,25 @@
+.pledge-form {
+    margin-left: 3rem;
+    padding: 4rem;
+    background-color: #B2D3BE;
+
+    &__title {
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    &__input {
+        padding-right: 10rem;
+    }
+    
+    &__button {
+        background-color: #89A3B2;
+        border: none;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+}
+
+
+
+
+

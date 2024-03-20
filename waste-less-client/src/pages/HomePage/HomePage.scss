@@ -1,7 +1,7 @@
 .homepage {
-    padding-top: 4rem;
-    padding-left: 5rem;
+    padding: 4rem 5rem 0rem 5rem;
     background-color: #EEF0E5;
+    height: 100vh;
     
     &__logo {
         height: 10rem;
@@ -23,5 +23,7 @@
 
     &__pledge-container {
         display: flex;
+        // justify-content: 
+        padding: 3rem;
     }
 }
