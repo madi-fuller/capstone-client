@@ -1,5 +1,6 @@
 import logo from "../../assets/logos/wasteless-logo.png";
 import "./Header.scss";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -15,24 +16,24 @@ function Header() {
           <div class="collapse navbar-collapse header__navigation" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item header__nav-item">
-                <a class="nav-link active" aria-current="page" href="/">
+                <NavLink to="/" class="nav-link active" aria-current="page">
                   Home
-                </a>
+                </NavLink>
               </li>
               <li class="nav-item header__nav-item">
-                <a class="nav-link" href="/">
+                <NavLink class="nav-link" to="/waste-log">
                   Waste Log
-                </a>
+             </NavLink>
               </li>
               <li class="nav-item header__nav-item">
-                <a class="nav-link" href="/">
+                <NavLink class="nav-link" to="/">
                   Recipes
-                </a>
+                </NavLink>
               </li>
               <li class="nav-item header__nav-item">
-                <a class="nav-link" href="/">
+                <NavLink class="nav-link" to="/">
                   Profile
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>
