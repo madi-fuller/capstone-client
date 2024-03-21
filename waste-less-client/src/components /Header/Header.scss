@@ -11,8 +11,16 @@
     }
 
     &__nav-item {
-        margin-right: 3rem;
+        margin-right: 2.5rem;
         font-size: 1.25rem;
+        color: black;
+        &:hover {
+            background-color: rgba(178, 211, 190, 0.3);
+            border-radius: 20px;
+            
+        }
+      
+       
     }
 
 
