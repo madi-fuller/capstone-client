@@ -1,10 +1,15 @@
-
 import "./PledgeForm.scss";
 
 function PledgeForm() {
   return (
-    <div className="pledge-form">
-        <h3 className="pledge-form__title"> Take the Pledge!</h3>
+    //FIX BEM!!
+    <div className="modal__pledge-form">
+      <div className="modal__pledge-form-container"> 
+      <div className="modal__header">
+        <p className="modal__close">&times;</p>
+        </div>
+        <div className="modal__content">
+        <h3 className="modal__pledge-form__title"> Take the Pledge!</h3>
       <form >
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
@@ -34,10 +39,17 @@ function PledgeForm() {
           </label>
           <input type="date" class="form-control pledge-form__input" id="datePicker" />
         </div>
-        <button type="submit" className="btn btn-primary pledge-form__button">
+        <div className="modal__footer">
+
+        <button type="submit" className="btn btn-primary modal__pledge-form__button">
           Commit to Change
         </button>
+        <button className="modal__pledge-form__button--cancel">Cancel</button>
+        </div>
+    
       </form>
+    </div>
+      </div>
       </div>
   )
 }

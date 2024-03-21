@@ -1,12 +1,13 @@
 import welcome from "../../assets/images/homepage-planet.png";
 import "./HomePage.scss";
 
-// import PledgeForm from "../../components /PledgeForm/PledgeForm";
+import PledgeForm from "../../components /PledgeFormModal/PledgeForm";
 
 function HomePage() {
   return (
     <div>
       <div className="homepage">
+      <PledgeForm/>
         <div className="homepage__hero-container">
         <div className="homepage__hero-container-text">
           <h2 className="homepage__hero-title">Join the Fight Against Food Waste</h2>
@@ -25,6 +26,7 @@ function HomePage() {
           
         </div>
         <div className="homepage__pledge-container">
+            
         </div>
       </div>
     </div>
