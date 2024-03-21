@@ -1,6 +1,5 @@
 import "./Header.scss";
 import logo from "../../assets/logos/wasteless-logo.png";
-
 import { NavLink } from "react-router-dom";
 
 function Header() {

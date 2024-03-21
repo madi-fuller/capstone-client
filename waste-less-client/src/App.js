@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage/HomePage';
 import WasteLog from './pages/WasteLog/WasteLog';
 import Header from './components /Header/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

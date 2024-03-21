@@ -1,31 +1,59 @@
 .homepage {
-    padding: 4rem 5rem 0rem 5rem;
-    // background-color: #EEF0E5;
-    height: 100vh;
-    
-    &__logo {
-        height: 10rem;
-        
-    }
+  height: 100vh;
 
-    &__logo-container {
-        display: flex;
-        justify-content: center;
-    }
+  &__hero-container {
+    height: 700px;
+    background-color: rgba(137, 163, 178, 0.5);
+    background-position: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 
-    &__subheading {
-        font-weight: 600;
-        color: #5E6073;
-        font-size: 2.5rem;
-        width: 50%;
-        text-align: center;
+    &-text {
+      margin-left: 2rem;
+      margin-right: 1rem;
     }
+  }
 
-    &__pledge-container {
-        display: flex;
-        background-color: white;
-        border-radius: 6px;
-        padding: 3rem;
-        margin-top: 3rem;
-    }
+  &__hero-title {
+    font-weight: 900;
+    font-size: 4.5rem;
+  }
+
+  &__hero-text {
+    font-weight: 600;
+    line-height: 2.5rem;
+  }
+  //maybe make this all under one __hero
+  &__hero-button {
+    border-radius: 20px;
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: #187F5A;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    // text-transform: uppercase;
+  }
+
+  &__image {
+    height: 500px;
+    margin-right: 3rem;
+  }
+
+  &__subheading {
+    font-weight: 600;
+    color: #5e6073;
+    font-size: 2.5rem;
+    width: 50%;
+    text-align: center;
+  }
+
+  &__pledge-container {
+    display: flex;
+    background-color: white;
+    border-radius: 6px;
+    padding: 3rem;
+    margin-top: 3rem;
+  }
 }
