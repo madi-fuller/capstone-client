@@ -1,10 +1,10 @@
 .modal {
-&__header {
+  &__header {
     display: flex;
     justify-content: flex-end;
     font-size: 2rem;
     height: 2.5rem;
-}
+  }
   &__pledge-form {
     position: fixed;
     left: 0;
@@ -33,7 +33,7 @@
     }
 
     &__button {
-      background-color: #89a3b2;
+    background-color: #187F5A;
       border: none;
       text-transform: uppercase;
       font-weight: 600;
