@@ -5,10 +5,13 @@ import { useState } from "react";
 
 function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const handleButtonClick = () => {
+    setModalOpen(false);
+  }
   return (
     <div>
       <div className="homepage">
-        {modalOpen && <PledgeForm />}
+        {modalOpen && <PledgeForm onSubmit={null} onCancel={handleButtonClick} onClose={handleButtonClick}/>}
         <div className="homepage__hero-container">
           <div className="homepage__hero-container-text">
             <h2 className="homepage__hero-title">

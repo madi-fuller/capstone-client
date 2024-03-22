@@ -1,12 +1,12 @@
 import "./PledgeForm.scss";
 
-function PledgeForm() {
+function PledgeForm( {onSubmit, onCancel, onClose} ) {
   return (
     //FIX BEM!!
     <div className="modal__pledge-form">
       <div className="modal__pledge-form-container"> 
       <div className="modal__header">
-        <p className="modal__close">&times;</p>
+        <p className="modal__close" onClick={() => onClose()}>&times;</p>
         </div>
         <div className="modal__content">
         <h3 className="modal__pledge-form__title"> Take the Pledge!</h3>
@@ -44,7 +44,7 @@ function PledgeForm() {
         <button type="submit" className="btn btn-primary modal__pledge-form__button">
           Commit to Change
         </button>
-        <button className="modal__pledge-form__button--cancel">Cancel</button>
+        <button className="modal__pledge-form__button--cancel" onClick={()=> onCancel}>Cancel</button>
         </div>
     
       </form>
