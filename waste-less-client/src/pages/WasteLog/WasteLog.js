@@ -1,9 +1,9 @@
+import WasteItemsList from "../../components /WasteItemsList/WasteItemsList";
 
 function WasteLog () {
     return (
         <>
-
-        <h1> This is the waste log page </h1>
+        <WasteItemsList />
         </>
     )
 }
