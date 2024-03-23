@@ -19,9 +19,13 @@ function WasteItemsList () {
     }, [wasteItem]);
     return (
         <>
-        <div> hi </div>
+        {wasteItem.map(item => (
+            <div key={item.id}>
+                <p>{item.name}</p>
+            </div>
+        ))}
         </>
-    ) 
+    );
 }
 
 export default WasteItemsList;
