@@ -1,0 +1,28 @@
+@import "../../styles/variables";
+.add-item {
+    width: 40%;
+    margin: 0 auto;
+
+    &__title {
+        font-weight: 900;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        color: $DarkGreen;
+    }
+
+    &__subtitle {
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__input {
+        border-color: $DarkGreen;
+    }
+
+    &__btn {
+        background-color: $DarkGreen;
+        font-weight: 900;
+    }
+}
