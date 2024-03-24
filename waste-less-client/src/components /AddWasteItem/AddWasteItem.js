@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function AddWasteItem() {
+function AddWasteItem({onCancel, onClose}) {
   const formRef = useRef();
   const itemNameRef = useRef();
   const itemCategoryRef = useRef();
@@ -35,7 +35,7 @@ function AddWasteItem() {
     <section className="add-item">
       <div className="add-item__container">
         <div className="add-item__container-header">
-          <p className="add-item__close">&times;</p>
+          <p className="add-item__close" onClick={() => onClose()}>&times;</p>
         </div>
         <div className="add-item__content-container">
           <h2 className="add-item__title">Add Wasted Food Item</h2>
@@ -61,12 +61,12 @@ function AddWasteItem() {
                   aria-label="Category"
                 >
                   <option selected> Select One</option>
-                  <option value="1">Dairy</option>
-                  <option value="2">Meat / Meat Alternative 2</option>
-                  <option value="3">Fruit </option>
-                  <option value="4">Vegetable</option>
-                  <option value="5">Grain</option>
-                  <option value="6">Other</option>
+                  <option value="Dairy">Dairy</option>
+                  <option value="Meat">Meat / Meat Alternative 2</option>
+                  <option value="Fruit">Fruit </option>
+                  <option value="Vegetable">Vegetable</option>
+                  <option value="Grain">Grain</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
               <div class="mb-3">
@@ -103,7 +103,7 @@ function AddWasteItem() {
                 <button type="submit" class="add-item__btn btn btn-primary">
                   Add Item
                 </button>
-                <button type="cancel" className="add-item__btn--cancel">Cancel</button>
+                <button type="cancel" className="add-item__btn--cancel" onClick={()=> onCancel()}>Cancel</button>
               </div>
             </form>
           </div>

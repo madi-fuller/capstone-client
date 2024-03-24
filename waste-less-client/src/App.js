@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage/HomePage';
 import WasteLog from './pages/WasteLog/WasteLog';
 import Header from './components /Header/Header';
+import RecipePage from './pages/RecipePage/RecipePage';
 
 
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/waste-log" element={<WasteLog />}/>
+        <Route path="/recipe" element={<RecipePage />} />
       </Routes>
     </BrowserRouter>
     <div>
