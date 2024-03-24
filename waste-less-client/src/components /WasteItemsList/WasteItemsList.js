@@ -26,6 +26,7 @@ function WasteItemsList() {
                     <div className="card-body">
                         <h5 className="card-title"> {item.name}</h5>
                         <p className="card-text">{item.category}</p>
+                        <p className="card-text">{item.quantity}</p>
                         </div>
                     </div>
             </div>
