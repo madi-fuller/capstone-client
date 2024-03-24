@@ -27,12 +27,12 @@ function Header() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/" className="header__nav-item">
+              <NavLink to="/recipe" className="header__nav-item">
                 Recipes
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/" className="header__nav-item">
+              <NavLink to="/profile" className="header__nav-item">
                 Profile
               </NavLink>
             </li>

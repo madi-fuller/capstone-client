@@ -5,10 +5,8 @@ import { useState } from "react";
 
 function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
-//   const [message, setMessage] = useState("");
   const handleButtonClick = (value) => {
     setModalOpen(false);
-    // setMessage(value);
   }
   return (
     <div>
