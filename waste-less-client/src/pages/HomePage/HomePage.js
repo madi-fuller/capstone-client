@@ -7,11 +7,17 @@ function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const handleButtonClick = (value) => {
     setModalOpen(false);
-  }
+  };
   return (
     <div>
       <div className="homepage">
-        {modalOpen && <PledgeForm onSubmit={null} onCancel={handleButtonClick} onClose={handleButtonClick}/>}
+        {modalOpen && (
+          <PledgeForm
+            onSubmit={null}
+            onCancel={handleButtonClick}
+            onClose={handleButtonClick}
+          />
+        )}
         <div className="homepage__hero-container">
           <div className="homepage__hero-container-text">
             <h2 className="homepage__hero-title">
@@ -22,7 +28,12 @@ function HomePage() {
               waste. Discover practical solutions and sustainable habits that
               are beneficial for both you and the planet.
             </h4>
-            <button className="homepage__hero-button" onClick={() => setModalOpen(true)}>Commit to Change</button>
+            <button
+              className="homepage__hero-button"
+              onClick={() => setModalOpen(true)}
+            >
+              Commit to Change
+            </button>
           </div>
           <img
             className="homepage__image"
