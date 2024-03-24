@@ -1,7 +1,15 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 .add-item {
     width: 40%;
     margin: 0 auto;
+    padding: 2rem;
+    @include modal-background;
+
+    &__container{
+        @include modal;
+        padding-top: 1rem;
+    }
 
     &__title {
         font-weight: 900;
@@ -21,8 +29,16 @@
         border-color: $DarkGreen;
     }
 
+    &__footer-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__btn {
-        background-color: $DarkGreen;
-        font-weight: 900;
+        @include button-submit;
+
+        &--cancel {
+            @include button-cancel;
+        }
     }
 }

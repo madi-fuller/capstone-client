@@ -1,0 +1,41 @@
+@use './variables.scss';
+
+//buttons
+@mixin button-submit {
+    background-color: $DarkGreen;
+      border: none;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 0.25rem 1rem;
+      box-shadow: 0px 5px 5px #ccc;
+}
+
+@mixin button-cancel {
+    background-color: rgba(179, 19, 18, 0.75);
+    color: white;
+    border: none;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 0.25rem 1rem;
+    box-shadow: 0px 5px 5px #ccc;
+}
+
+//modal 
+@mixin modal-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@mixin modal {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 6px;
+}

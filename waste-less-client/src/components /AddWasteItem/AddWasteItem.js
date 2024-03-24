@@ -4,9 +4,14 @@ function AddWasteItem() {
 
   return (
     <section className="add-item">
+        <div className="add-item__container">
+        <div className="add-item__container-header">
+            <p className="add-item__close">&times;</p>
+        </div>
+        <div className="add-item__content-container">
         <h2 className="add-item__title">Add Wasted Food Item</h2>
         <p className="add-item__subtitle">Fill out all fields to add an item to your log</p>
-      <div class="add-item__container container mt-5">
+      <div class="add-item__container container">
         <form>
           <div class="mb-3">
             <label className="form-label"> Item Name</label>
@@ -46,12 +51,18 @@ function AddWasteItem() {
             </label>
             <input type="date" class="add-item__input form-control" id="datePicker" />
           </div>
+          <div className="add-item__footer-container">
           <button type="submit" class="add-item__btn btn btn-primary">
             Add Item
           </button>
+          <button className="add-item__btn--cancel">Cancel</button>
+          </div>
         </form>
+        </div>
+      </div>
       </div>
     </section>
+   
   );
 }
 

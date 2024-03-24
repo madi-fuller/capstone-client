@@ -1,3 +1,5 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
 .modal {
   &__header {
     display: flex;
@@ -6,21 +8,10 @@
     height: 2.5rem;
   }
   &__pledge-form {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    padding: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    @include modal-background;
 
     &-container {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 6px;
+     @include modal;
       width: 30em;
     }
 
@@ -33,19 +24,9 @@
     }
 
     &__button {
-    background-color: #187F5A;
-      border: none;
-      text-transform: uppercase;
-      font-weight: 600;
-      border-radius: 20px;
-      padding: 0.25rem 1rem;
-      box-shadow: 0px 5px 5px #ccc;
-
+      @include button-submit;
       &--cancel {
-        @extend .modal__pledge-form__button;
-        text-transform: uppercase;
-        background-color: rgba(179, 19, 18, 0.75);
-        color: white;
+        @include button-cancel;
       }
     }
   }
