@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+.waste-page {
+    background-color: rgba(195,208,217, 0.1);
+    padding: 2rem;
+}
+
+.waste-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    &__title {
+        font-weight: 900;
+        color: $Dark-Blue;
+    }
+
+    &__subtitle {
+        font-weight: 600;
+    }
+
+    &__button {
+        @include button-submit;
+        font-size: 1.25rem;
+        background-color: $Light-Green;
+        color: $DarkGreen;
+        text-transform: uppercase;
+
+
+    }
+}
