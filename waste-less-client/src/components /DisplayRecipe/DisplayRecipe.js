@@ -28,6 +28,8 @@ function DisplayRecipe ({ searchResult }) {
                     <p>{data.hits[randomIndex].recipe.label}</p>
                     <p>{data.hits[randomIndex].recipe.ingredientLines}</p>
                     <img src={data.hits[randomIndex].recipe.image} alt="recipe preview"/>
+                    <p>For recipe instructions:</p>
+                    <a href={data.hits[randomIndex].recipe.url} target="_blank" rel="noreferrer">Click me!</a>
                 </div>
             )}
         </div>
