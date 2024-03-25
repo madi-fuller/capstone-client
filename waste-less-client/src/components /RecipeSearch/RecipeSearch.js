@@ -2,14 +2,17 @@ import { useState } from "react";
 import "./RecipeSearch.scss";
 
 function RecipeSearch({ setSearchResult }) {
-    const[searchIngredient, setSearchIngredient] = useState("");
-    
-    const handleSearch = () => {
-        setSearchResult(searchIngredient);
-    }
+  const [searchIngredient, setSearchIngredient] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchResult(searchIngredient);
+  };
+
+ 
   return (
     <section className="recipe-search">
-      <form className="recipe-search__form">
+      <form onSubmit={handleSearch} className="recipe-search__form">
         <div class="recipe-search__container input-group mb-3">
           <input
             type="text"
@@ -21,7 +24,12 @@ function RecipeSearch({ setSearchResult }) {
             aria-describedby="basic-addon2"
           />
           <div class="input-group-append">
-            <button onClick={handleSearch} class="btn btn-outline-secondary" type="button">
+            <button
+              onClick={handleSearch}
+              class="btn btn-outline-secondary"
+              type="button"
+
+            >
               Search
             </button>
           </div>
