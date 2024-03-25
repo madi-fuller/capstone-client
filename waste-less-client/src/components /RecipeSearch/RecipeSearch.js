@@ -20,7 +20,7 @@ function RecipeSearch({ setSearchResult }) {
             aria-describedby="basic-addon2"
           />
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">
+            <button onClick={handleSearch} class="btn btn-outline-secondary" type="button">
               Button
             </button>
           </div>
