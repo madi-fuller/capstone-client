@@ -2,6 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import remove from "../../assets/icons/remove.png";
 import "./WasteItemsList.scss";
+import fruitIcon from "../../assets/icons/strawberry.png";
+import vegetableIcon from "../../assets/icons/broccoli.png";
+import grainIcon from "../../assets/icons/grain.png";
+import dairyIcon from "../../assets/icons/milk.png";
+import leftoversIcon from "../../assets/icons/meal.png";
+import meatIcon from "../../assets/icons/meat.png";
+import otherIcon from "../../assets/icons/cutlery.png";
 
 function WasteItemsList() {
   const [wasteItem, setWasteItem] = useState([]);
@@ -29,6 +36,27 @@ function WasteItemsList() {
     }
   }
 
+  const categoryIcons = {
+    fruit: fruitIcon,
+    vegetable: vegetableIcon,
+    grain: grainIcon,
+    meat: meatIcon,
+    dairy: dairyIcon,
+    leftovers: leftoversIcon,
+    other: otherIcon
+  };
+
+  const getCategoryIcon = (category) => {
+    return categoryIcons[category.toLowerCase()] || "";
+  };
+
+  // const editItem = async (itemId) => {
+  //   const API_URL = `http://localhost:8080/api/add-waste/${itemId}`;
+  //   try {
+  //     await axios.put(API_URL);
+  //   }
+  // }
+
   return (
     <section className="waste-log">
       <div className="container">
@@ -38,6 +66,7 @@ function WasteItemsList() {
                 <div className="card">
                     <div className="card-body">
                         <h5 className="card-title"> {item.name}</h5>
+                        <img className="waste-log__icon"src={getCategoryIcon(item.category)} alt="category icon" />
                         <p className="card-text">{item.category}</p>
                         <p className="card-text">{item.quantity}</p>
                         <img onClick={() => deleteItem(item.id)} className="waste-log__icon card-text " src={remove} alt="x icon" />
