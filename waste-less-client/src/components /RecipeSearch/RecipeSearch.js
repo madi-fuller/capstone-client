@@ -1,10 +1,19 @@
-function RecipeSearch() {
+import { useState } from "react";
+
+function RecipeSearch({ setSearchResult }) {
+    const[searchIngredient, setSearchIngredient] = useState("");
+    
+    const handleSearch = () => {
+        setSearchResult(searchIngredient);
+    }
   return (
     <section>
       <form>
         <div class="input-group mb-3">
           <input
             type="text"
+            value={searchIngredient}
+            onChange={(e) => setSearchIngredient(e.target.value)}
             class="form-control"
             placeholder="Search by Ingredient"
             aria-label="Search"
