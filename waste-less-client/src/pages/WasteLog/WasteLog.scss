@@ -3,12 +3,14 @@
 .waste-page {
     background-color: rgba(195,208,217, 0.1);
     padding: 2rem;
+    height: 100vh;
 }
 
 .waste-header{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    padding: 0 3rem;
     &__title {
         font-weight: 900;
         color: $Dark-Blue;
@@ -16,6 +18,7 @@
 
     &__subtitle {
         font-weight: 600;
+        margin-bottom: 2rem;
     }
 
     &__button {

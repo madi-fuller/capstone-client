@@ -63,14 +63,23 @@ function WasteItemsList() {
         <div className="row">
           {wasteItem.map((item) => (
             <div key={item.id} className="col-md-3 mb-4">
-                <div className="card">
+                <div className="waste-log__card card">
                     <div className="card-body">
-                        <h5 className="card-title"> {item.name}</h5>
-                        <img className="waste-log__icon"src={getCategoryIcon(item.category)} alt="category icon" />
-                        <p className="card-text">{item.category}</p>
-                        <p className="card-text">{item.quantity}</p>
+                        <div className="waste-log__container">
+                        <h5 className="waste-log__title card-title"> {item.name}</h5>
+                        <img className="waste-log__category-icon"src={getCategoryIcon(item.category)} alt="category icon" />
+                        </div>
+                        <div className="waste-log__category-container">
+                        <p className="waste-log__subtitle">Category:</p>
+                        <p className="waste-log__category card-text">{item.category}</p>
+                        </div>
+                        <div className="waste-log__quantity-container">
+                          <p className="waste-log__subtitle">Quantity:</p>
+                        <p className="waste-log__quantity card-text">{item.quantity}</p>
+                        </div>
+                        <div className="waste-log__icon-container">
                         <img onClick={() => deleteItem(item.id)} className="waste-log__icon card-text " src={remove} alt="x icon" />
-
+                        </div>
                         </div>
                     </div>
             </div>
