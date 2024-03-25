@@ -1,13 +1,14 @@
 @import "../../styles/variables.scss";
 .waste-log {
-    &__card {
-        border: none;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease; 
-        &:hover {
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
-        }
+  &__card {
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    height: 11rem;
+    &:hover {
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     }
+  }
   &__title {
     font-size: 1.5rem;
     font-weight: 600;
@@ -17,6 +18,7 @@
     text-transform: uppercase;
     font-weight: 900;
     color: $DarkGreen;
+    margin-bottom: 0;
   }
 
   &__container {
@@ -35,6 +37,11 @@
     @extend .waste-log__category;
   }
 
+  &__date {
+    @extend .waste-log__category;
+    margin-left: 0;
+  }
+
   &__category-container {
     display: flex;
     margin-top: 0.5rem;
@@ -46,6 +53,8 @@
   &__icon {
     height: 1.25rem;
     cursor: pointer;
+    position: relative;
+    bottom: 2rem;
 
     &-container {
       display: flex;

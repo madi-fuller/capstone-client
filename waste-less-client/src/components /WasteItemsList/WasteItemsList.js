@@ -30,11 +30,13 @@ function WasteItemsList() {
     const API_URL = `http://localhost:8080/api/add-waste/${itemId}`;
     try {
       await axios.delete(API_URL);
-      setWasteItem(prevItems => prevItems.filter(item => item.id !== itemId));
-    } catch(error) {
+      setWasteItem((prevItems) =>
+        prevItems.filter((item) => item.id !== itemId)
+      );
+    } catch (error) {
       console.error("An error ocurred while deleting the item", error);
     }
-  }
+  };
 
   const categoryIcons = {
     fruit: fruitIcon,
@@ -43,19 +45,18 @@ function WasteItemsList() {
     meat: meatIcon,
     dairy: dairyIcon,
     leftovers: leftoversIcon,
-    other: otherIcon
+    other: otherIcon,
   };
 
   const getCategoryIcon = (category) => {
     return categoryIcons[category.toLowerCase()] || "";
   };
 
-  // const editItem = async (itemId) => {
-  //   const API_URL = `http://localhost:8080/api/add-waste/${itemId}`;
-  //   try {
-  //     await axios.put(API_URL);
-  //   }
-  // }
+  const changeToDate = (timestamp) => {
+    const date = new Date(timestamp);
+    const options = { weekday: "long", month: "long", day: "numeric" };
+    return date.toLocaleString("en-US", options);
+  };
 
   return (
     <section className="waste-log">
@@ -63,25 +64,47 @@ function WasteItemsList() {
         <div className="row">
           {wasteItem.map((item) => (
             <div key={item.id} className="col-md-3 mb-4">
-                <div className="waste-log__card card">
-                    <div className="card-body">
-                        <div className="waste-log__container">
-                        <h5 className="waste-log__title card-title"> {item.name}</h5>
-                        <img className="waste-log__category-icon"src={getCategoryIcon(item.category)} alt="category icon" />
-                        </div>
-                        <div className="waste-log__category-container">
-                        <p className="waste-log__subtitle">Category:</p>
-                        <p className="waste-log__category card-text">{item.category}</p>
-                        </div>
-                        <div className="waste-log__quantity-container">
-                          <p className="waste-log__subtitle">Quantity:</p>
-                        <p className="waste-log__quantity card-text">{item.quantity}</p>
-                        </div>
-                        <div className="waste-log__icon-container">
-                        <img onClick={() => deleteItem(item.id)} className="waste-log__icon card-text " src={remove} alt="x icon" />
-                        </div>
-                        </div>
-                    </div>
+              <div className="waste-log__card card">
+                <div className="card-body">
+                  <div className="waste-log__container">
+                    <h5 className="waste-log__title card-title">
+                      {" "}
+                      {item.name}
+                    </h5>
+                    <img
+                      className="waste-log__category-icon"
+                      src={getCategoryIcon(item.category)}
+                      alt="category icon"
+                    />
+                  </div>
+                  <div className="waste-log__category-container">
+                    <p className="waste-log__subtitle">Category:</p>
+                    <p className="waste-log__category card-text">
+                      {item.category}
+                    </p>
+                  </div>
+                  <div className="waste-log__quantity-container">
+                    <p className="waste-log__subtitle">Quantity:</p>
+                    <p className="waste-log__quantity card-text">
+                      {item.quantity}
+                    </p>
+                  </div>
+                  <div className="waste-log__date-container">
+                    <p className="waste-log__subtitle">Thrown out:</p>
+                    <p className="waste-log__date">
+                      {changeToDate(item.created_at)}
+                    </p>
+                  </div>
+                  <div className="waste-log__icon-container">
+                    <img
+                      onClick={() => deleteItem(item.id)}
+                      className="waste-log__icon card-text "
+                      src={remove}
+                      alt="x icon"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
