@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 function DisplayRecipe ({ searchResult }) {
     const [data, setData] = useState([]);
+    const [randomIndex, setRandomIndex] = useState(null);
 
     useEffect(() => {
         const getRecipe = async () => {
@@ -11,6 +12,7 @@ function DisplayRecipe ({ searchResult }) {
                 const response = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${searchResult}&app_id=b23e228a&app_key=
                 08189e92308af246c491688c4b1739be`);
                 setData(response.data);
+                setRandomIndex(Math.floor(Math.random() * response.data.hits.length));
             } catch (error) {
                 console.error('Could not load data', error);
             }
@@ -21,11 +23,13 @@ function DisplayRecipe ({ searchResult }) {
     }, [searchResult]);
     return (
         <div>
-            {data.hits.slice(0, 1).map((item) => (
-                <div key={item.recipe.uri}>
-                    <p>{item.recipe.label}</p>
-                    </div>
-            ))}
+              {data.hits && data.hits[randomIndex] && (
+                <div key={data.hits[randomIndex].recipe.uri}>
+                    <p>{data.hits[randomIndex].recipe.label}</p>
+                    <p>{data.hits[randomIndex].recipe.ingredientLines}</p>
+                    <img src={data.hits[randomIndex].recipe.image} alt="recipe preview"/>
+                </div>
+            )}
         </div>
     )
 }
