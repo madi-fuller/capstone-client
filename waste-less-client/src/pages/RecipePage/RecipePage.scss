@@ -1,0 +1,18 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.recipe {
+    @include page-style;
+
+    &__title {
+        @include page-title;
+    }
+
+    &__subtitle {
+        @include page-subtitle;
+    }
+
+    &__header {
+        @include page-header;
+    }
+}

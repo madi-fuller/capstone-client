@@ -39,3 +39,27 @@
     padding: 2rem;
     border-radius: 6px;
 }
+
+//page layout 
+@mixin page-style {
+    background-color: rgba(195,208,217, 0.1);
+    padding: 2rem;
+    height: 100vh;
+}
+
+@mixin page-title {
+    font-weight: 900;
+    color: $Dark-Blue;
+}
+
+@mixin page-subtitle {
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+@mixin page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 3rem;
+}

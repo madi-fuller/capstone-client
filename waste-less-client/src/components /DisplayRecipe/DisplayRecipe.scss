@@ -1,0 +1,26 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables";
+
+.recipe {
+    &__container {
+        display: flex;
+        justify-content: flex-start;
+        margin:3rem;
+    
+    }
+
+    &__text-container {
+        width: 50%;
+        margin-left: 3rem;
+    }
+
+    &__img {
+        height: 30rem;
+        border-radius: 6px;
+    }
+
+    &__name {
+        font-size: 2rem;
+        font-weight: 600; 
+    }
+}

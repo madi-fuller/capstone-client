@@ -7,18 +7,13 @@
 }
 
 .waste-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 0 3rem;
+   @include page-header;
     &__title {
-        font-weight: 900;
-        color: $Dark-Blue;
+       @include page-title;
     }
 
     &__subtitle {
-        font-weight: 600;
-        margin-bottom: 2rem;
+        @include page-subtitle;
     }
 
     &__button {

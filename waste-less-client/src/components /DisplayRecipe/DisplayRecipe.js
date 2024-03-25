@@ -25,11 +25,18 @@ function DisplayRecipe ({ searchResult }) {
         <div>
               {data.hits && data.hits[randomIndex] && (
                 <div key={data.hits[randomIndex].recipe.uri}>
-                    <p>{data.hits[randomIndex].recipe.label}</p>
-                    <p>{data.hits[randomIndex].recipe.ingredientLines}</p>
-                    <img src={data.hits[randomIndex].recipe.image} alt="recipe preview"/>
+                    <div className='recipe__container'>
+                        <div className='recipe__img-container'>
+                    <img className="recipe__img" src={data.hits[randomIndex].recipe.image} alt="recipe preview"/>
+                    </div>
+                    <div className='recipe__text-container'>
+                    <p className='recipe__name'>{data.hits[randomIndex].recipe.label}</p>
+                    <p className='recipe__ingredients'>{data.hits[randomIndex].recipe.ingredientLines}</p>
+                    
                     <p>For recipe instructions:</p>
                     <a href={data.hits[randomIndex].recipe.url} target="_blank" rel="noreferrer">Click me!</a>
+                    </div>
+                    </div>
                 </div>
             )}
         </div>
