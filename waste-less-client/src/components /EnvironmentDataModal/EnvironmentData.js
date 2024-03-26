@@ -4,6 +4,8 @@ import water from "../../assets/icons/water-drop.png";
 import transport from "../../assets/icons/transportation (1).png";
 import land from "../../assets/icons/land (1).png";
 import co2 from "../../assets/icons/carbon-footprint.png";
+import EnvironmentDetailsTooltip from "../EnvironmentDetailsTooltip/EnvironmentDetailsTooltip";
+
 
 
 function EnvironmentData({ onClose, selectedItem, environmentalImpact }) {
@@ -63,6 +65,9 @@ function EnvironmentData({ onClose, selectedItem, environmentalImpact }) {
         <p className="col-4"> kg C02 /kg</p>
         <img className="environment-data__icon col-1" src={transport} alt="plane truck and boat"/>
         </div>
+        </div>
+        <div>
+          <EnvironmentDetailsTooltip />
         </div>
       </div>
     </div>

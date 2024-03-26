@@ -16,6 +16,9 @@ function WasteLog() {
           <p className="waste-header__subtitle">
             Keep track of the food items you throw away here
           </p>
+          <p className="waste-header__subtitle--second">
+            View information about the environmental impacts of the foods you throw away by clicking on the name!
+          </p>
         </div>
         <div className="waste-header__container">
           <button

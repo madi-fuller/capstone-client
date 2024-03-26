@@ -14,6 +14,12 @@
 
     &__subtitle {
         @include page-subtitle;
+        margin-bottom: 0;
+        &--second {
+            @include page-subtitle;
+        
+        }
+
     }
 
     &__button {

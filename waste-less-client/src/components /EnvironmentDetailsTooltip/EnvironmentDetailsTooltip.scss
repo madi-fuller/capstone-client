@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+.tooltip {
+    &__icon {
+        height: 2rem;
+    }
+}
+
+.tooltip-trigger .tooltip{
+    opacity: 0;
+    width: 50%;
+    background-color: $Light-Grey;
+    border-radius: 6px;
+    padding: 2rem;
+    transition: opacity 0.5s;
+    position: absolute;
+}
+.tooltip-trigger:hover .tooltip {
+    opacity:1;
+}
