@@ -1,6 +1,5 @@
 import WasteItemsList from "../../components /WasteItemsList/WasteItemsList";
 import AddWasteItem from "../../components /AddWasteItem/AddWasteItem";
-import EnvironmentData from "../../components /EnvironmentDataModal/EnvironmentData";
 import { useState } from "react";
 import "./WasteLog.scss";
 
@@ -34,7 +33,6 @@ function WasteLog() {
           onClose={handleButtonClick}
         />
       )}
-      <EnvironmentData />
 
     </section>
   );

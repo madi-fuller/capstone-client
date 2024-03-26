@@ -1,4 +1,5 @@
-function EnvironmentData({ selectedItem, environmentalImpact }) {
+import "./EnvironmentData.scss";
+function EnvironmentData({ onClose, selectedItem, environmentalImpact }) {
   if (!environmentalImpact) {
     return null;
   }
@@ -10,11 +11,14 @@ function EnvironmentData({ selectedItem, environmentalImpact }) {
     energy_consumption,
   } = environmentalImpact[0];
 
+  
+
   return (
     <div className="environment-data">
       <div className="environment-data__container">
-        <div className="environment-data__header"></div>
-        <p className="environment-data__close">&times;</p>
+        <div className="environment-data__header">
+          <p onClick={() => onClose()}className="environment-data__close">&times;</p>
+        </div>
         <h3 className="environment-data__item-name">{selectedItem}</h3>
         <div className="environment-data__content"></div>
         <p>{carbon_footprint}</p>

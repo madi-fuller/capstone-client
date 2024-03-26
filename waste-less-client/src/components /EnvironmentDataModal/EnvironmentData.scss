@@ -1,0 +1,17 @@
+@import "../../styles/mixins";
+
+.environment-data {
+    @include modal-background;
+    &__container {
+       @include modal;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__close {
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+}

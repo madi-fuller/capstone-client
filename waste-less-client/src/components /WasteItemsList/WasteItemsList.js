@@ -15,6 +15,7 @@ function WasteItemsList() {
   const [wasteItem, setWasteItem] = useState([]);
   const [environmentalImpact, setEnvironmentalImpact] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [showEnvironmentData, setShowEnvironmentData] = useState(false);
 
   useEffect(() => {
     const API_URL = "http://localhost:8080/api/add-waste";
@@ -48,10 +49,15 @@ function WasteItemsList() {
       );
       setSelectedItem(itemName);
       setEnvironmentalImpact(response.data);
+      setShowEnvironmentData(true);
       console.log(response.data);
     } catch (error) {
       console.error("Error getting environmental impact data", error);
     }
+  };
+
+  const handleCloseData = () => {
+    setShowEnvironmentData(false);
   };
 
   const categoryIcons = {
@@ -129,8 +135,9 @@ function WasteItemsList() {
           ))}
         </div>
       </div>
-      {selectedItem && environmentalImpact && (
+      {showEnvironmentData && environmentalImpact && (
         <EnvironmentData
+          onClose={handleCloseData}
           selectedItem={selectedItem}
           environmentalImpact={environmentalImpact}
         />
