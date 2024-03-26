@@ -1,17 +1,59 @@
 @import "../../styles/mixins";
+@import "../../styles/variables";
 
 .environment-data {
-    @include modal-background;
-    &__container {
-       @include modal;
-    }
+  @include modal-background;
+  &__container {
+    @include modal;
+    width: 60%;
+  }
 
-    &__header {
-        display: flex;
-        justify-content: flex-end;
+  &__image {
+    height: 5rem;
+  }
+
+  &__header-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 700;
+    color: $DarkGreen;
+
+    &-container {
+      border-bottom: solid 1px grey;
+      margin-bottom: 1rem;
     }
-    &__close {
-        cursor: pointer;
-        margin-bottom: 0;
-    }
+  }
+
+  &__item-name {
+    font-weight: 900;
+    margin-left: 1rem;
+  }
+
+  &__icon {
+    height: 2rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  &__close {
+    cursor: pointer;
+  }
+}
+
+.col-4 {
+    width: fit-content;
+    min-width: 7rem;
+}
+
+.col-1 {
+    width: fit-content;
 }

@@ -9,8 +9,6 @@ function AddWasteItem({ onCancel, onClose }) {
   const itemCategoryRef = useRef();
   const itemQuantityRef = useRef();
 
-
-
   const API_URL = "http://localhost:8080";
 
   const handleSubmit = (e) => {
@@ -23,9 +21,8 @@ function AddWasteItem({ onCancel, onClose }) {
 
     const postNewItem = async () => {
       try {
-   await axios.post(`${API_URL}/api/add-waste`, newItemData);
- 
- 
+        await axios.post(`${API_URL}/api/add-waste`, newItemData);
+
         onClose();
       } catch (error) {
         console.error("There has been an error", error);
@@ -105,7 +102,11 @@ function AddWasteItem({ onCancel, onClose }) {
                 />
               </div>
               <div className="add-item__footer-container">
-                <button onClick={()=> window.location.reload()}type="submit" class="add-item__btn btn btn-primary">
+                <button
+                  onClick={() => window.location.reload()}
+                  type="submit"
+                  class="add-item__btn btn btn-primary"
+                >
                   Add Item
                 </button>
                 <button
