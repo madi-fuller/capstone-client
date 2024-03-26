@@ -3,6 +3,7 @@ function ProfilePage () {
     return (
         <div>
             {/* <WasteItemData /> */}
+            <h1> Hello, User!</h1>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import "./PledgeForm.scss";
+import planet from "../../assets/images/happy-planet.png";
 
 function PledgeForm({ onSubmit, onCancel, onClose }) {
   return (
@@ -6,12 +7,16 @@ function PledgeForm({ onSubmit, onCancel, onClose }) {
     <div className="modal__pledge-form">
       <div className="modal__pledge-form-container">
         <div className="modal__header">
+          <div className="modal__header-container">
+          <img className="modal__icon"src={planet} alt="happy planet" />
+        <h3 className="modal__pledge-form__title"> Sign up!</h3>
+        </div>
           <p className="modal__close" onClick={() => onClose()}>
             &times;
           </p>
         </div>
         <div className="modal__content">
-          <h3 className="modal__pledge-form__title"> Take the Pledge!</h3>
+          
           <form>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
