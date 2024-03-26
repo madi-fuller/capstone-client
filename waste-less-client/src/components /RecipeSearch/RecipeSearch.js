@@ -9,7 +9,6 @@ function RecipeSearch({ setSearchResult }) {
     setSearchResult(searchIngredient);
   };
 
- 
   return (
     <section className="recipe-search">
       <form onSubmit={handleSearch} className="recipe-search__form">
@@ -28,7 +27,6 @@ function RecipeSearch({ setSearchResult }) {
               onClick={handleSearch}
               class="btn btn-outline-secondary"
               type="button"
-
             >
               Search
             </button>

@@ -2,17 +2,17 @@
 @import "../../styles/variables.scss";
 
 .recipe {
-    @include page-style;
+  @include page-style;
 
-    &__title {
-        @include page-title;
-    }
+  &__title {
+    @include page-title;
+  }
 
-    &__subtitle {
-        @include page-subtitle;
-    }
+  &__subtitle {
+    @include page-subtitle;
+  }
 
-    &__header {
-        @include page-header;
-    }
+  &__header {
+    @include page-header;
+  }
 }

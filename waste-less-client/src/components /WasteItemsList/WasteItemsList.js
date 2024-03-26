@@ -9,9 +9,12 @@ import dairyIcon from "../../assets/icons/milk.png";
 import leftoversIcon from "../../assets/icons/meal.png";
 import meatIcon from "../../assets/icons/meat.png";
 import otherIcon from "../../assets/icons/cutlery.png";
+import EnvironmentData from "../EnvironmentDataModal/EnvironmentData";
 
 function WasteItemsList() {
   const [wasteItem, setWasteItem] = useState([]);
+  const [environmentalImpact, setEnvironmentalImpact] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
     const API_URL = "http://localhost:8080/api/add-waste";
@@ -35,6 +38,19 @@ function WasteItemsList() {
       );
     } catch (error) {
       console.error("An error ocurred while deleting the item", error);
+    }
+  };
+
+  const handleItemClick = async (itemId, itemName) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/api/environmental-impact/${itemId}`
+      );
+      setSelectedItem(itemName);
+      setEnvironmentalImpact(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error getting environmental impact data", error);
     }
   };
 
@@ -67,10 +83,14 @@ function WasteItemsList() {
               <div className="waste-log__card card">
                 <div className="card-body">
                   <div className="waste-log__container">
-                    <h5 className="waste-log__title card-title">
+                    <h5
+                      onClick={() => handleItemClick(item.id, item.name)}
+                      className="waste-log__title card-title"
+                    >
                       {" "}
                       {item.name}
                     </h5>
+
                     <img
                       className="waste-log__category-icon"
                       src={getCategoryIcon(item.category)}
@@ -109,6 +129,12 @@ function WasteItemsList() {
           ))}
         </div>
       </div>
+      {selectedItem && environmentalImpact && (
+        <EnvironmentData
+          selectedItem={selectedItem}
+          environmentalImpact={environmentalImpact}
+        />
+      )}
     </section>
   );
 }
