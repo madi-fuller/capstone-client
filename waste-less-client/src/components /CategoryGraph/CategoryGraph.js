@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Chart } from "react-google-charts";
+import "./CategoryGraph.scss";
 
 function CategoryGraph() {
   const [categoryData, setCategoryData] = useState([]);
@@ -9,7 +10,7 @@ function CategoryGraph() {
     const getData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/add-waste/data"
+          "http://localhost:8080/api/add-waste/pie-data"
         );
         setCategoryData(response.data);
       } catch (error) {
@@ -19,14 +20,16 @@ function CategoryGraph() {
     getData();
   }, []);
   return (
-    <div>
-      <h2>Categories of Food Wasted</h2>
+    <div className="pie-chart">
+      <h2 className="pie-chart__title">Categories of Food Wasted</h2>
+      <div className="pie-chart__graph">
       <Chart
-        width={"500px"}
-        height={"300px"}
+        width={"400px"}
+        height={"200px"}
         chartType="PieChart"
         data={categoryData}
       />
+      </div>
     </div>
   );
 }

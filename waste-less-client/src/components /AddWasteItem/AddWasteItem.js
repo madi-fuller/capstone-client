@@ -67,6 +67,7 @@ function AddWasteItem({ onCancel, onClose }) {
                   <option value="Meat">Meat / Meat Alternative 2</option>
                   <option value="Fruit">Fruit </option>
                   <option value="Vegetable">Vegetable</option>
+                  <option value="Leftovers">Leftovers</option>
                   <option value="Grain">Grain</option>
                   <option value="Other">Other</option>
                 </select>
@@ -97,7 +98,7 @@ function AddWasteItem({ onCancel, onClose }) {
                 </label>
                 <input
                   type="date"
-                  class="add-item__input form-control"
+                  class="add-item__input--date form-control"
                   id="datePicker"
                 />
               </div>

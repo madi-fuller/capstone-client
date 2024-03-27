@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+
+.graph {
+    &__title {
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+    &__chart {
+        border-radius: 6px;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        background-color: $Light-Green;
+    }
+}

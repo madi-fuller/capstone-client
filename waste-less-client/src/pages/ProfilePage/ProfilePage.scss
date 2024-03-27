@@ -1,0 +1,22 @@
+@import "../../styles/mixins.scss";
+
+.profile {
+    @include page-style;
+    &__header{
+        @include page-header;
+    }
+    &__title {
+        @include page-title;
+    }
+    &__data {
+        display: flex;
+        justify-content: flex-start;
+        margin-right: 2rem;
+        padding-left: 3rem;
+        padding-top: 1rem;
+    }
+
+    &__waste-data {
+        margin-left: 1rem;
+    }
+}

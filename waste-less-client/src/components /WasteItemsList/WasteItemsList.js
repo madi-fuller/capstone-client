@@ -112,7 +112,7 @@ function WasteItemsList() {
                   <div className="waste-log__quantity-container">
                     <p className="waste-log__subtitle">Quantity:</p>
                     <p className="waste-log__quantity card-text">
-                      {item.quantity}
+                      {item.quantity} {item.unit}
                     </p>
                   </div>
                   <div className="waste-log__date-container">

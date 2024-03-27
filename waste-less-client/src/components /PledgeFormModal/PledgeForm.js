@@ -1,9 +1,12 @@
 import "./PledgeForm.scss";
 import planet from "../../assets/images/happy-planet.png";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
+import SignUpSuccess from "../SignUpSuccess/SignUpSuccess";
 
 function PledgeForm({ onCancel, onClose }) {
+
+  const [signUpSuccess, setSignUpSuccess] = useState(false);
 
   const formRef= useRef();
   const userNameRef= useRef();
@@ -21,8 +24,8 @@ function PledgeForm({ onCancel, onClose }) {
     const postNewUser = async () => {
       try {
         await axios.post(`${API_URL}/api/user-profile`, newUser);
-        onClose();
-        alert("USER ADDED");
+        setSignUpSuccess(true);
+        
       } catch (error) {
         console.error("There has been an error", error);
       }
@@ -31,10 +34,16 @@ function PledgeForm({ onCancel, onClose }) {
     postNewUser();
 
   }
+  const closeModal = () => {
+    setSignUpSuccess(false);
+  }
 
   return (
+    
     //FIX BEM!!
     <div className="modal__pledge-form">
+      {signUpSuccess && <SignUpSuccess onClose={closeModal} />}
+      
       <div className="modal__pledge-form-container">
         <div className="modal__header">
           <div className="modal__header-container">
@@ -90,7 +99,7 @@ function PledgeForm({ onCancel, onClose }) {
               </button>
               <button
                 className="modal__pledge-form__button--cancel"
-                onClick={() => onCancel}
+                onClick={() => onCancel()}
               >
                 Cancel
               </button>
