@@ -1,9 +1,9 @@
-import WasteItemData from "../../components /WasteItemData/WasteItemData";
+import CategoryGraph from "../../components /CategoryGraph/CategoryGraph";
 function ProfilePage () {
     return (
         <div>
-            {/* <WasteItemData /> */}
             <h1> Hello, User!</h1>
+            <CategoryGraph />
         </div>
     )
 }

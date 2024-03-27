@@ -1,23 +1,52 @@
 import "./PledgeForm.scss";
 import planet from "../../assets/images/happy-planet.png";
+import { useRef } from "react";
+import axios from "axios";
 
-function PledgeForm({ onSubmit, onCancel, onClose }) {
+function PledgeForm({ onCancel, onClose }) {
+
+  const formRef= useRef();
+  const userNameRef= useRef();
+  const userReasonRef = useRef()
+
+  const API_URL = "http://localhost:8080";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newUser = {
+      name: userNameRef.current.value,
+      reason_for_reducing: userReasonRef.current.value
+    }
+
+    const postNewUser = async () => {
+      try {
+        await axios.post(`${API_URL}/api/user-profile`, newUser);
+        onClose();
+        alert("USER ADDED");
+      } catch (error) {
+        console.error("There has been an error", error);
+      }
+    };
+
+    postNewUser();
+
+  }
+
   return (
     //FIX BEM!!
     <div className="modal__pledge-form">
       <div className="modal__pledge-form-container">
         <div className="modal__header">
           <div className="modal__header-container">
-          <img className="modal__icon"src={planet} alt="happy planet" />
-        <h3 className="modal__pledge-form__title"> Sign up!</h3>
-        </div>
+            <img className="modal__icon" src={planet} alt="happy planet" />
+            <h3 className="modal__pledge-form__title"> Sign up!</h3>
+          </div>
           <p className="modal__close" onClick={() => onClose()}>
             &times;
           </p>
         </div>
         <div className="modal__content">
-          
-          <form>
+          <form ref={formRef} onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
                 Name:
@@ -27,6 +56,7 @@ function PledgeForm({ onSubmit, onCancel, onClose }) {
                 className="pledge-form__input form-control "
                 id="name"
                 placeholder="Enter your name"
+                ref={userNameRef}
               />
             </div>
             <div className="mb-3">
@@ -38,6 +68,7 @@ function PledgeForm({ onSubmit, onCancel, onClose }) {
                 id="reason"
                 rows="3"
                 placeholder="Enter your reason"
+                ref={userReasonRef}
               ></textarea>
             </div>
             <div class="mb-3">
