@@ -4,13 +4,14 @@
     border: none;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
-    height: 11rem;
+    height: 12.5rem;
+    max-height: fit-content;
     &:hover {
       box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     }
   }
   &__title {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
     text-transform: capitalize;
     cursor: pointer;
@@ -53,19 +54,19 @@
   &__quantity-container {
     display: flex;
   }
+
   &__icon {
     height: 1.25rem;
     cursor: pointer;
-    position: relative;
-    bottom: 2rem;
 
     &-container {
       display: flex;
       justify-content: flex-end;
+      align-items: center;
     }
   }
 
   &__category-icon {
-    height: 2.5rem;
+    height: 2rem;
   }
 }

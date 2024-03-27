@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+.carbon {
+    &__title{
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    &__container {
+        border-radius: 6px;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        background-color: $Light-Green;
+    }
+
+    &__number {
+        padding: 0.5rem;
+        background-color: white;
+        margin: 0;
+        font-weight: 600;
+      
+    }
+
+    &__icon {
+        height: 2rem;
+        padding-right: 0.5rem;
+    }
+}

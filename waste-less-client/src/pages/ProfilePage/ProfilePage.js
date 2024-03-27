@@ -1,5 +1,6 @@
 import CategoryGraph from "../../components /CategoryGraph/CategoryGraph";
 import WasteOverTime from "../../components /WasteOverTimeGraph/WasteOverTime";
+import C02Emissions from "../../components /C02Emissions/C02Emissions";
 import "./ProfilePage.scss";
 function ProfilePage () {
     return (
@@ -12,6 +13,7 @@ function ProfilePage () {
             <div className="profile__waste-data">
             <WasteOverTime />
             </div>
+            <C02Emissions />
             </div>
         </div>
     )
