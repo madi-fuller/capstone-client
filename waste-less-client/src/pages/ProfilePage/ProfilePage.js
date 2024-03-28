@@ -1,6 +1,7 @@
 import CategoryGraph from "../../components /CategoryGraph/CategoryGraph";
 import WasteOverTime from "../../components /WasteOverTimeGraph/WasteOverTime";
 import C02Emissions from "../../components /C02Emissions/C02Emissions";
+import DisplayUserData from "../../components /DisplayUserData/DisplayUserData";
 import "./ProfilePage.scss";
 function ProfilePage () {
     return (
@@ -8,6 +9,7 @@ function ProfilePage () {
             <div className="profile__header">
             <h1 className="profile__title"> Hello, User! Your Dashboard:</h1>
             </div>
+            <DisplayUserData />
             <div>
             <div className="profile__data">
             <CategoryGraph />

@@ -80,11 +80,15 @@ function WasteItemsList() {
     return date.toLocaleString("en-US", options);
   };
 
+  const sortedWasteItems = [...wasteItem].sort((a, b) => {
+    return new Date(b.created_at) - new Date(a.created_at);
+    });
+
   return (
     <section className="waste-log">
       <div className="container">
         <div className="row">
-          {wasteItem.map((item) => (
+          {sortedWasteItems.map((item) => (
             <div key={item.id} className="col-md-3 mb-4">
               <div className="waste-log__card card">
                 <div className="card-body">
