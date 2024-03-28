@@ -10,12 +10,40 @@ import leftoversIcon from "../../assets/icons/meal.png";
 import meatIcon from "../../assets/icons/meat.png";
 import otherIcon from "../../assets/icons/cutlery.png";
 import EnvironmentData from "../EnvironmentDataModal/EnvironmentData";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 function WasteItemsList() {
   const [wasteItem, setWasteItem] = useState([]);
   const [environmentalImpact, setEnvironmentalImpact] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
   const [showEnvironmentData, setShowEnvironmentData] = useState(false);
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [itemIdToDelete, setItemIdToDelete] = useState(null);
+
+  const openDeleteItem = async (itemId) => {
+    setShowDeleteModal(true);
+    setItemIdToDelete(itemId);
+  }
+
+  const deleteItem = async (itemId) => {
+    const API_URL = `http://localhost:8080/api/add-waste/${itemId}`;
+    try {
+      await axios.delete(API_URL);
+      setWasteItem((prevItems) =>
+        prevItems.filter((item) => item.id !== itemIdToDelete)
+      );
+
+      setShowDeleteModal(false);
+    } catch (error) {
+      console.error("An error ocurred while deleting the item", error);
+    }
+  };
+
+  const handleDeleteCancel = () => {
+    setShowDeleteModal(false);
+    setItemIdToDelete(null);
+  }
 
   useEffect(() => {
     const API_URL = "http://localhost:8080/api/add-waste";
@@ -30,17 +58,7 @@ function WasteItemsList() {
     getWasteItems();
   }, []);
 
-  const deleteItem = async (itemId) => {
-    const API_URL = `http://localhost:8080/api/add-waste/${itemId}`;
-    try {
-      await axios.delete(API_URL);
-      setWasteItem((prevItems) =>
-        prevItems.filter((item) => item.id !== itemId)
-      );
-    } catch (error) {
-      console.error("An error ocurred while deleting the item", error);
-    }
-  };
+
 
   const handleItemClick = async (itemName) => {
     try {
@@ -129,7 +147,7 @@ function WasteItemsList() {
                   </div>
                   <div className="waste-log__icon-container">
                     <img
-                      onClick={() => deleteItem(item.id)}
+                      onClick={() => openDeleteItem(item.id)}
                       className="waste-log__icon card-text "
                       src={remove}
                       alt="x icon"
@@ -147,6 +165,12 @@ function WasteItemsList() {
           selectedItem={selectedItem}
           environmentalImpact={environmentalImpact}
         />
+      )}
+      {showDeleteModal && (
+        <DeleteModal onDelete={deleteItem}
+        onCancel={handleDeleteCancel}
+        itemIdToDelete={itemIdToDelete} />
+        
       )}
     </section>
   );
