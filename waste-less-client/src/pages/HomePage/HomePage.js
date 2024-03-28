@@ -2,6 +2,7 @@ import welcome from "../../assets/images/homepage-planet.png";
 import "./HomePage.scss";
 import PledgeForm from "../../components /PledgeFormModal/PledgeForm";
 import { useState } from "react";
+import FeaturePreview from "../../components /FeaturePreview/FeaturePreview";
 
 function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -43,6 +44,7 @@ function HomePage() {
         </div>
         <div className="homepage__pledge-container"></div>
       </div>
+      {/* <FeaturePreview /> */}
     </div>
   );
 }
