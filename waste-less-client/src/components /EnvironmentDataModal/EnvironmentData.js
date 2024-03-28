@@ -4,7 +4,7 @@ import water from "../../assets/icons/water-drop.png";
 import transport from "../../assets/icons/transportation (1).png";
 import land from "../../assets/icons/land (1).png";
 import co2 from "../../assets/icons/carbon-footprint.png";
-import EnvironmentDetailsTooltip from "../EnvironmentDetailsTooltip/EnvironmentDetailsTooltip";
+import Tooltip from "@mui/material/Tooltip";
 
 
 
@@ -61,11 +61,10 @@ function EnvironmentData({ onClose, selectedItem, environmentalImpact }) {
         <p className="col-6">Transportation C02 Emissions: </p>
         <p className="col-2"> {energy_consumption} </p>
         <p className="col-4"> kg C02 /kg</p>
+        <Tooltip title="Amount of carbon dioxide released into the atmosphere during the transportation of food items" placement="right">
         <img className="environment-data__icon col-1" src={transport} alt="plane truck and boat"/>
+        </Tooltip>
         </div>
-        </div>
-        <div>
-          <EnvironmentDetailsTooltip />
         </div>
       </div>
     </div>
