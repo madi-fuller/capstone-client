@@ -42,10 +42,10 @@ function WasteItemsList() {
     }
   };
 
-  const handleItemClick = async (itemId, itemName) => {
+  const handleItemClick = async (itemName) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/environmental-impact/${itemId}`
+        `http://localhost:8080/api/environmental-impact/${itemName}`
       );
       setSelectedItem(itemName);
       setEnvironmentalImpact(response.data);
@@ -90,7 +90,7 @@ function WasteItemsList() {
                 <div className="card-body">
                   <div className="waste-log__container">
                     <h5
-                      onClick={() => handleItemClick(item.id, item.name)}
+                      onClick={() => handleItemClick(item.name)}
                       className="waste-log__title card-title"
                     >
                       {" "}
@@ -111,9 +111,11 @@ function WasteItemsList() {
                   </div>
                   <div className="waste-log__quantity-container">
                     <p className="waste-log__subtitle">Quantity:</p>
+                   
                     <p className="waste-log__quantity card-text">
-                      {item.quantity} {item.unit}
+                      {item.quantity} 
                     </p>
+                    <p className="waste-log__quantity card-text">{item.unit}</p>
                   </div>
                   <div className="waste-log__date-container">
                     <p className="waste-log__subtitle">Thrown out:</p>

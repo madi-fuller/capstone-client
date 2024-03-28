@@ -1,5 +1,6 @@
 import "./AddWasteItem.scss";
 import { useRef } from "react";
+import planet from "../../assets/images/sad-planet.png";
 
 import axios from "axios";
 
@@ -7,6 +8,7 @@ function AddWasteItem({ onCancel, onClose }) {
   const formRef = useRef();
   const itemNameRef = useRef();
   const itemCategoryRef = useRef();
+  const itemQuantityUnitRef =useRef();
   const itemQuantityRef = useRef();
 
   const API_URL = "http://localhost:8080";
@@ -17,6 +19,7 @@ function AddWasteItem({ onCancel, onClose }) {
       name: itemNameRef.current.value,
       category: itemCategoryRef.current.value,
       quantity: itemQuantityRef.current.value,
+      unit: itemQuantityUnitRef.current.value,
     };
 
     const postNewItem = async () => {
@@ -25,10 +28,12 @@ function AddWasteItem({ onCancel, onClose }) {
 
         onClose();
       } catch (error) {
-        console.error("There has been an error", error);
+        console.error("There has been an error adding an item", error);
       }
     };
+    
     postNewItem();
+
   };
 
   return (
@@ -44,6 +49,9 @@ function AddWasteItem({ onCancel, onClose }) {
           <p className="add-item__subtitle">
             Fill out all fields to add an item to your log
           </p>
+          <div className="add-item__image-container">
+          <img className="add-item__planet" src={planet} alt="sad planet"/>
+          </div>
           <div class="add-item__container container">
             <form ref={formRef} onSubmit={handleSubmit}>
               <div class="mb-3">
@@ -77,11 +85,13 @@ function AddWasteItem({ onCancel, onClose }) {
                 <select
                   class="add-item__input form-select"
                   aria-label="Unit of Measurement"
+                  ref={itemQuantityUnitRef}
                 >
                   <option selected>Measured In</option>
                   <option value="items">Number of Items</option>
                   <option value="pounds">Pounds</option>
                   <option value="cups">Cups</option>
+                  <option value="litre">Litre</option>
                 </select>
               </div>
               <div class="mb-3">

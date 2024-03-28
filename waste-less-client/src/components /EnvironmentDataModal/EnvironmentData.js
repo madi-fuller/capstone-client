@@ -16,7 +16,6 @@ function EnvironmentData({ onClose, selectedItem, environmentalImpact }) {
     carbon_footprint,
     land_usage,
     water_usage,
-    packaging,
     energy_consumption,
   } = environmentalImpact[0];
 
@@ -59,7 +58,6 @@ function EnvironmentData({ onClose, selectedItem, environmentalImpact }) {
         <img className="environment-data__icon col-1" src={land} alt="plant budding"/>
         </div>
         <div className="row">
-   
         <p className="col-6">Transportation C02 Emissions: </p>
         <p className="col-2"> {energy_consumption} </p>
         <p className="col-4"> kg C02 /kg</p>

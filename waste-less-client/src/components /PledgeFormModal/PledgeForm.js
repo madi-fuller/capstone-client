@@ -2,11 +2,12 @@ import "./PledgeForm.scss";
 import planet from "../../assets/images/happy-planet.png";
 import { useRef, useState } from "react";
 import axios from "axios";
-import SignUpSuccess from "../SignUpSuccess/SignUpSuccess";
+import { NavLink } from "react-router-dom";
+
 
 function PledgeForm({ onCancel, onClose }) {
 
-  const [signUpSuccess, setSignUpSuccess] = useState(false);
+ const [submitted, setSubmitted] = useState(false);
 
   const formRef= useRef();
   const userNameRef= useRef();
@@ -24,7 +25,7 @@ function PledgeForm({ onCancel, onClose }) {
     const postNewUser = async () => {
       try {
         await axios.post(`${API_URL}/api/user-profile`, newUser);
-        setSignUpSuccess(true);
+        setSubmitted(true);
         
       } catch (error) {
         console.error("There has been an error", error);
@@ -34,15 +35,13 @@ function PledgeForm({ onCancel, onClose }) {
     postNewUser();
 
   }
-  const closeModal = () => {
-    setSignUpSuccess(false);
-  }
+ 
 
   return (
     
     //FIX BEM!!
     <div className="modal__pledge-form">
-      {signUpSuccess && <SignUpSuccess onClose={closeModal} />}
+    
       
       <div className="modal__pledge-form-container">
         <div className="modal__header">
@@ -105,8 +104,18 @@ function PledgeForm({ onCancel, onClose }) {
               </button>
             </div>
           </form>
+          {submitted && (
+            <div className="modal__success">
+              <p className="modal__link">You have successfully signed up!</p>
+              <NavLink className="modal__link"to = "/profile">
+              <p>Check out your profile</p>
+              </NavLink>
+            </div>
+          )}
         </div>
+        
       </div>
+    
     </div>
   );
 }

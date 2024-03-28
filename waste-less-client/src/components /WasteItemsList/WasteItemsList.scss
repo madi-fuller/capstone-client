@@ -53,10 +53,13 @@
 
   &__quantity-container {
     display: flex;
+    flex-direction: row;
   }
 
   &__icon {
     height: 1.25rem;
+    position: relative;
+    bottom: 1rem;
     cursor: pointer;
 
     &-container {
