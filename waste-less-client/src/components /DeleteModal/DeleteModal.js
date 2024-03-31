@@ -9,7 +9,7 @@ function DeleteModal({onDelete, onCancel, itemIdToDelete }) {
     <section className="delete-modal">
       <div className="delete-modal__container">
         <div className="delete-modal__container-header">
-          <p className="delete-modal__close">&times;</p>
+          <p onClick={onCancel} className="delete-modal__close">&times;</p>
         </div>
         <div className="delete-modal__content">
           <img className="delete-modal__icon" src={trash} alt="delete" />
