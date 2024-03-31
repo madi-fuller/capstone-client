@@ -2,6 +2,7 @@ import CategoryGraph from "../../components /CategoryGraph/CategoryGraph";
 import WasteOverTime from "../../components /WasteOverTimeGraph/WasteOverTime";
 import C02Emissions from "../../components /C02Emissions/C02Emissions";
 import DisplayUserData from "../../components /DisplayUserData/DisplayUserData";
+import WasteTips from "../../components /WasteTips/WasteTips";
 import "./ProfilePage.scss";
 function ProfilePage () {
     return (
@@ -19,6 +20,9 @@ function ProfilePage () {
             </div>
             <div className="profile__carbon-data">
             <C02Emissions />
+            </div>
+            <div className="profile__waste-tips">
+            <WasteTips />
             </div>
             </div>
         </div>
