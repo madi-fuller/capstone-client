@@ -1,6 +1,7 @@
 import "./AddWasteItem.scss";
 import { useRef } from "react";
 import planet from "../../assets/images/sad-planet.png";
+import ValidateAddForm from "../../utils/WasteItemValidator";
 
 import axios from "axios";
 
