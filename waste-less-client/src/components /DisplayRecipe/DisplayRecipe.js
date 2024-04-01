@@ -27,7 +27,7 @@ function DisplayRecipe({ searchResult }) {
               `https://api.edamam.com/api/recipes/v2?type=public&q=${mostWastedItem}&app_id=b23e228a&app_key=08189e92308af246c491688c4b1739be`
             );
             setMessage(
-              `You've wasted ${mostWastedItem} the most. Next time try this recipe out!`
+              `You've wasted ${mostWastedItem} the most. Next time try this recipe out:`
             );
           } else {
             const wasteItemsResponse = await axios.get("http://localhost:8080/api/waste-items");

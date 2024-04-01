@@ -8,11 +8,12 @@ function AddWasteItem({ onCancel, onClose }) {
   const formRef = useRef();
   const itemNameRef = useRef();
   const itemCategoryRef = useRef();
-  const itemQuantityUnitRef =useRef();
+  const itemQuantityUnitRef = useRef();
   const itemQuantityRef = useRef();
 
   const API_URL = "http://localhost:8080";
 
+  //function to take the values form the form and post them to the server
   const handleSubmit = (e) => {
     e.preventDefault();
     const newItemData = {
@@ -31,9 +32,8 @@ function AddWasteItem({ onCancel, onClose }) {
         console.error("There has been an error adding an item", error);
       }
     };
-    
-    postNewItem();
 
+    postNewItem();
   };
 
   return (
@@ -50,7 +50,7 @@ function AddWasteItem({ onCancel, onClose }) {
             Fill out all fields to add an item to your log
           </p>
           <div className="add-item__image-container">
-          <img className="add-item__planet" src={planet} alt="sad planet"/>
+            <img className="add-item__planet" src={planet} alt="sad planet" />
           </div>
           <div class="add-item__container container">
             <form ref={formRef} onSubmit={handleSubmit}>

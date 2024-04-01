@@ -4,45 +4,35 @@ import { useRef, useState } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 
-
 function PledgeForm({ onCancel, onClose }) {
+  const [submitted, setSubmitted] = useState(false);
 
- const [submitted, setSubmitted] = useState(false);
-
-  const formRef= useRef();
-  const userNameRef= useRef();
-  const userReasonRef = useRef()
-
+  const formRef = useRef();
+  const userNameRef = useRef();
+  const userReasonRef = useRef();
   const API_URL = "http://localhost:8080";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newUser = {
       name: userNameRef.current.value,
-      reason_for_reducing: userReasonRef.current.value
-    }
+      reason_for_reducing: userReasonRef.current.value,
+    };
 
     const postNewUser = async () => {
       try {
         await axios.post(`${API_URL}/api/user-profile`, newUser);
         setSubmitted(true);
-        
       } catch (error) {
         console.error("There has been an error", error);
       }
     };
 
     postNewUser();
-
-  }
- 
+  };
 
   return (
-    
-    //FIX BEM!!
     <div className="modal__pledge-form">
-    
-      
       <div className="modal__pledge-form-container">
         <div className="modal__header">
           <div className="modal__header-container">
@@ -107,15 +97,13 @@ function PledgeForm({ onCancel, onClose }) {
           {submitted && (
             <div className="modal__success">
               <p className="modal__link">You have successfully signed up!</p>
-              <NavLink className="modal__link"to = "/profile">
-              <p>Check out your profile</p>
+              <NavLink className="modal__link" to="/profile">
+                <p>Check out your profile</p>
               </NavLink>
             </div>
           )}
         </div>
-        
       </div>
-    
     </div>
   );
 }

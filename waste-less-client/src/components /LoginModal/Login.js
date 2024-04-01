@@ -1,6 +1,14 @@
 import "./Login.scss";
+import { useNavigate } from "react-router-dom";
+import planet from "../../assets/images/happy-planet.png";
 
 function LoginModal( { onClose}) {
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        onClose();
+        navigate("/profile");
+    };
   return (
     <div className="login">
     
@@ -10,8 +18,11 @@ function LoginModal( { onClose}) {
             <div class="card">
               <div class="card-body">
                 <div className="login__header">
-                <h5 class="card-title">Login</h5>
-                <p onClick={() => onClose()}>&times;</p>
+                  <div className="login__header-container">
+                <img className="login__icon" src={planet} alt="happy planet" />
+                <h3 class="login__title card-title">Login</h3>
+                </div>
+                <p className="login__close" onClick={() => onClose()}>&times;</p>
                 </div>
                 <div className="login__content">
                 <form>
@@ -19,7 +30,7 @@ function LoginModal( { onClose}) {
                     <label for="username">Username</label>
                     <input
                       type="text"
-                      class="form-control"
+                      class="login__input form-control"
                       id="username"
                       placeholder="Enter username"
                     />
@@ -28,12 +39,12 @@ function LoginModal( { onClose}) {
                     <label for="password">Password</label>
                     <input
                       type="password"
-                      class="form-control"
+                      class="login__input form-control"
                       id="password"
                       placeholder="Enter password"
                     />
                   </div>
-                  <button type="submit" class="login__btn btn btn-primary">
+                  <button type="submit" class="login__btn btn btn-primary" onClick={handleButtonClick}>
                     Login
                   </button>
                 </form>

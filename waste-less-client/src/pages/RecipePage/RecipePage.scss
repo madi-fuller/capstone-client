@@ -2,6 +2,7 @@
 @import "../../styles/variables.scss";
 
 .recipe {
+  height: fit-content;
   @include page-style;
 
   &__title {
