@@ -1,0 +1,67 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+.modal {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    height: 2.5rem;
+
+    &-container {
+      display: flex;
+      align-items: center;
+      padding-bottom: 1rem;
+    }
+  }
+
+  &__icon {
+    height: 5rem;
+    margin-right: 1rem;
+  }
+  &__pledge-form {
+    @include modal-background;
+
+    &-container {
+      @include modal;
+      width: 30em;
+    }
+
+    &__title {
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    &__input {
+      padding-right: 10rem;
+      text-transform: capitalize;
+    }
+
+    &__button {
+      @include button-submit;
+      &--cancel {
+        @include button-cancel;
+      }
+    }
+  }
+
+  &__content {
+    margin-top: 1rem;
+  }
+  &__close {
+    cursor: pointer;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__success {
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
+  &__link {
+    margin-bottom: 0;
+  }
+}

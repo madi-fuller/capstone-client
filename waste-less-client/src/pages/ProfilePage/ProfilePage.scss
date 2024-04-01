@@ -1,0 +1,40 @@
+@import "../../styles/mixins.scss";
+
+.profile {
+    @include page-style;
+    &__header{
+        @include page-header;
+    }
+    &__title {
+        @include page-title;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 3rem;
+        padding-top: 1rem;
+    }
+    &__data {
+        display: flex;
+        justify-content: flex-start;
+        margin-right: 2rem;
+        padding-left: 3rem;
+        padding-top: 1rem;
+    }
+
+    &__waste-tips {
+        min-width: 60%;
+    }
+
+    &__carbon-data {
+        padding-left: 3rem;
+        padding-top: 1rem;
+    }
+
+    &__waste-data {
+        margin-left: 1rem;
+    }
+
+   
+}

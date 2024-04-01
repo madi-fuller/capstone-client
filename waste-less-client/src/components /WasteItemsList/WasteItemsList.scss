@@ -1,0 +1,75 @@
+@import "../../styles/variables.scss";
+.waste-log {
+  &__card {
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    height: 12.5rem;
+    max-height: fit-content;
+    &:hover {
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  }
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 900;
+    color: $DarkGreen;
+    margin-bottom: 0;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1rem;
+  }
+
+  &__category {
+    margin-left: 1rem;
+    font-weight: 700;
+  }
+
+  &__quantity {
+    @extend .waste-log__category;
+  }
+
+  &__date {
+    @extend .waste-log__category;
+    margin-left: 0;
+  }
+
+  &__category-container {
+    display: flex;
+    margin-top: 0.5rem;
+  }
+
+  &__quantity-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__icon {
+    height: 1.25rem;
+    position: relative;
+    bottom: 1rem;
+    cursor: pointer;
+
+    &-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  &__category-icon {
+    height: 2rem;
+  }
+}

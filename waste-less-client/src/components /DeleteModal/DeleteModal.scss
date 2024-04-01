@@ -1,0 +1,54 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.delete-modal {
+  @include modal-background;
+
+  &__container {
+    @include modal;
+    width: 40%;
+
+    &-header {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  &__text {
+    text-align: center;
+  }
+
+  &__close {
+    cursor: pointer;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__icon {
+    height: 5rem;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btn {
+    &--cancel {
+      @include button-cancel;
+      background-color: grey;
+    }
+
+    &--delete {
+      @include button-cancel;
+    }
+  }
+}

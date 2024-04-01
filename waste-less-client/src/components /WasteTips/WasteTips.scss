@@ -1,0 +1,39 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+.tips {
+  &__title {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  &__container {
+    border-radius: 6px;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: $Light-Green;
+  }
+  &__icon {
+    height: 2rem;
+    padding-right: 0.5rem;
+  }
+
+  &__tip {
+    padding: 0.5rem;
+    background-color: white;
+    margin: 0;
+    font-weight: 600;
+    min-width: 60%;
+  }
+
+  &__btn {
+    @include button-submit;
+    background-color: $Light-Green;
+
+    &-container {
+      display: flex;
+      justify-content: flex-end;
+      padding-bottom: 0.5rem;
+    }
+  }
+}

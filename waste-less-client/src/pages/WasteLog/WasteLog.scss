@@ -1,0 +1,34 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+.waste-page {
+    background-color: rgba(195,208,217, 0.1);
+    padding: 2rem;
+    height: fit-content;
+}
+
+.waste-header{
+   @include page-header;
+    &__title {
+       @include page-title;
+    }
+
+    &__subtitle {
+        @include page-subtitle;
+        margin-bottom: 0;
+        &--second {
+            @include page-subtitle;
+        
+        }
+
+    }
+
+    &__button {
+        @include button-submit;
+        font-size: 1.25rem;
+        background-color: $Light-Green;
+        color: $DarkGreen;
+        text-transform: uppercase;
+
+
+    }
+}
