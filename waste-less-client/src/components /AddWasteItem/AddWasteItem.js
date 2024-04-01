@@ -1,11 +1,19 @@
 import "./AddWasteItem.scss";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import planet from "../../assets/images/sad-planet.png";
 import ValidateAddForm from "../../utils/WasteItemValidator";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 import axios from "axios";
 
 function AddWasteItem({ onCancel, onClose }) {
+
+  const [invalidInput, setInvalidInput] = useState({
+    name: "",
+    category: "",
+    quantity: ""
+  });
+
   const formRef = useRef();
   const itemNameRef = useRef();
   const itemCategoryRef = useRef();
@@ -33,8 +41,14 @@ function AddWasteItem({ onCancel, onClose }) {
         console.error("There has been an error adding an item", error);
       }
     };
+    const isFormValid = ValidateAddForm(newItemData).isFormValid;
 
+    if(isFormValid){
     postNewItem();
+    }
+
+    const errorMessage = ValidateAddForm(newItemData).errorMessage;
+    setInvalidInput(errorMessage);
   };
 
   return (
@@ -63,6 +77,7 @@ function AddWasteItem({ onCancel, onClose }) {
                   class="add-item__input form-control"
                   placeholder="Item Name"
                 />
+                <ErrorMessage message={invalidInput.name} />
               </div>
               <div class="mb-3">
                 <label className="form-label"> Category</label>
@@ -80,6 +95,7 @@ function AddWasteItem({ onCancel, onClose }) {
                   <option value="Grain">Grain</option>
                   <option value="Other">Other</option>
                 </select>
+                <ErrorMessage message={invalidInput.category}/>
               </div>
               <div class="mb-3">
                 <label className="form-label"> Quantity</label>
@@ -102,6 +118,7 @@ function AddWasteItem({ onCancel, onClose }) {
                   class="add-item__input form-control"
                   placeholder="Quantity ..."
                 />
+                <ErrorMessage message={invalidInput.quantity}/>
               </div>
               <div class="mb-3">
                 <label for="datePicker" class="form-label">
