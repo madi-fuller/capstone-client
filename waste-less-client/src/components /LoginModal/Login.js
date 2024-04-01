@@ -1,6 +1,6 @@
 import "./Login.scss";
 
-function LoginModal() {
+function LoginModal( { onClose}) {
   return (
     <div className="login">
     
@@ -11,7 +11,7 @@ function LoginModal() {
               <div class="card-body">
                 <div className="login__header">
                 <h5 class="card-title">Login</h5>
-                <p>&times;</p>
+                <p onClick={() => onClose()}>&times;</p>
                 </div>
                 <div className="login__content">
                 <form>

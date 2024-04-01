@@ -5,18 +5,32 @@ import LoginModal from "../../components /LoginModal/Login";
 import { useState } from "react";
 
 function HomePage() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const handleButtonClick = (value) => {
-    setModalOpen(false);
+  const [commitModalOpen, setCommitModalOpen] = useState(false);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+
+  const handleCommitButtonClick = () => {
+    setCommitModalOpen(true);
+  };
+
+  const handleLoginButtonClick = () => {
+    setLoginModalOpen(true);
+  };
+
+  const handleCommitModalClose = () => {
+    setCommitModalOpen(false);
+  };
+
+  const handleLoginModalClose = () => {
+    setLoginModalOpen(false);
   };
   return (
     <div>
       <div className="homepage">
-        {modalOpen && (
+        {commitModalOpen && (
           <PledgeForm
             onSubmit={null}
-            onCancel={handleButtonClick}
-            onClose={handleButtonClick}
+            onCancel={handleCommitModalClose}
+            onClose={handleCommitModalClose}
           />
         )}
         <div className="homepage__hero-container">
@@ -32,11 +46,11 @@ function HomePage() {
             
             <button
               className="homepage__hero-button"
-              onClick={() => setModalOpen(true)}
+              onClick={() => handleCommitButtonClick}
             >
               Commit to Change
             </button>
-            <button className="homepage__login-button">
+            <button className="homepage__login-button" onClick={handleLoginButtonClick}>
               Login
             </button>
           </div>
@@ -48,7 +62,11 @@ function HomePage() {
         </div>
         <div className="homepage__pledge-container"></div>
       </div>
-      <LoginModal />
+      {loginModalOpen && (
+      <LoginModal 
+      onSubmit={null}
+      onClose={handleLoginModalClose}/>
+      )}
     </div>
   );
 }
