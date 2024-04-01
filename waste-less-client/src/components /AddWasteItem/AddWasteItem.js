@@ -45,6 +45,7 @@ function AddWasteItem({ onCancel, onClose }) {
 
     if(isFormValid){
     postNewItem();
+    window.location.reload()
     }
 
     const errorMessage = ValidateAddForm(newItemData).errorMessage;
@@ -132,7 +133,6 @@ function AddWasteItem({ onCancel, onClose }) {
               </div>
               <div className="add-item__footer-container">
                 <button
-                  onClick={() => window.location.reload()}
                   type="submit"
                   class="add-item__btn btn btn-primary"
                 >

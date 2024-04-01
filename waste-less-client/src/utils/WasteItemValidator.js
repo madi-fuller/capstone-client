@@ -9,15 +9,17 @@ function ValidateAddForm (FormData) {
 
     if (!name) {
         errorMessage.name = "This field is required";
-        isFormValid = false
+        isFormValid = false;
     } 
 
     if (!category) {
         errorMessage.category = "This field is required";
+        isFormValid = false;
     }
 
     if (!quantity) {
         errorMessage.quantity = "This field is required";
+        isFormValid = false;
     }
 
     return { errorMessage, isFormValid}
