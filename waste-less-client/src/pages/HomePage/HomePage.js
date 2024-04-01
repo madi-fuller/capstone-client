@@ -1,6 +1,7 @@
 import welcome from "../../assets/images/homepage-planet.png";
 import "./HomePage.scss";
 import PledgeForm from "../../components /PledgeFormModal/PledgeForm";
+import LoginModal from "../../components /LoginModal/Login";
 import { useState } from "react";
 
 function HomePage() {
@@ -28,11 +29,15 @@ function HomePage() {
               waste. Discover practical solutions and sustainable habits that
               are beneficial for both you and the planet.
             </h4>
+            
             <button
               className="homepage__hero-button"
               onClick={() => setModalOpen(true)}
             >
               Commit to Change
+            </button>
+            <button className="homepage__login-button">
+              Login
             </button>
           </div>
           <img
@@ -43,6 +48,7 @@ function HomePage() {
         </div>
         <div className="homepage__pledge-container"></div>
       </div>
+      <LoginModal />
     </div>
   );
 }

@@ -36,6 +36,17 @@
     font-weight: 600;
   }
 
+  &__login-button {
+    border-radius: 20px;
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: #187F5A;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    margin-left: 4rem;
+  }
+
   &__image {
     height: 500px;
     margin-right: 3rem;
