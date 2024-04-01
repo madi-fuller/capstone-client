@@ -6,14 +6,16 @@ import WasteTips from "../../components /WasteTips/WasteTips";
 import "./ProfilePage.scss";
 function ProfilePage() {
   return (
+    //user name hardcoded for now until authentication is implemented
+
     <div className="profile">
       <div className="profile__header">
-        <h1 className="profile__title"> Hello, User! Your Dashboard:</h1>
+        <h1 className="profile__title"> Hello, Madi! View Your Dashboard:</h1>
       </div>
       <div className="profile__container">
         <DisplayUserData />
         <div className="profile__waste-tips">
-        <WasteTips />
+          <WasteTips />
         </div>
       </div>
       <div>
@@ -22,10 +24,11 @@ function ProfilePage() {
           <div className="profile__waste-data">
             <WasteOverTime />
           </div>
-        </div>
-        <div className="profile__carbon-data">
+          <div className="profile__carbon-data">
           <C02Emissions />
         </div>
+        </div>
+        
       </div>
     </div>
   );
