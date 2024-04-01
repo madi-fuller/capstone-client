@@ -8,6 +8,12 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 function PledgeForm({ onCancel, onClose }) {
   const [submitted, setSubmitted] = useState(false);
+  const [invalidInput, setInvalidInput] = useState({
+    name: "",
+    username: "",
+    password: "",
+    reason_for_reducing: ""
+  });
 
   const formRef = useRef();
   const userNameRef = useRef();
@@ -34,7 +40,14 @@ function PledgeForm({ onCancel, onClose }) {
       }
     };
 
-    postNewUser();
+    const isFormValid = ValidateSignupForm(newUser).isFormValid;
+
+    if(isFormValid) {
+      postNewUser();
+    }
+
+    const errorMessage = ValidateSignupForm(newUser).errorMessage;
+    setInvalidInput(errorMessage);
   };
 
   return (
@@ -62,6 +75,7 @@ function PledgeForm({ onCancel, onClose }) {
                 placeholder="Enter your name"
                 ref={userNameRef}
               />
+              <ErrorMessage message={invalidInput.name} />
             </div>
             <div className = "mb-3">
             <label htmlFor="username" className="form-label">
@@ -74,6 +88,7 @@ function PledgeForm({ onCancel, onClose }) {
                 placeholder="Enter a username"
                 ref={usernameRef}
               />
+              <ErrorMessage message={invalidInput.username} />
             </div>
             <div className="mb-3">
             <label htmlFor="password" className="form-label">
@@ -86,6 +101,7 @@ function PledgeForm({ onCancel, onClose }) {
                 placeholder="Enter a password"
                 ref={passwordRef}
               />
+              <ErrorMessage message={invalidInput.password} />
             </div>
             <div className="mb-3">
               <label htmlFor="reason" className="form-label">
@@ -98,6 +114,7 @@ function PledgeForm({ onCancel, onClose }) {
                 placeholder="Enter your reason"
                 ref={userReasonRef}
               ></textarea>
+              <ErrorMessage message={invalidInput.reason_for_reducing} />
             </div>
             <div class="mb-3">
               <label for="datePicker" class="form-label">

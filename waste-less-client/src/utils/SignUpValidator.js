@@ -14,17 +14,17 @@ function ValidateSignupForm (FormData) {
     } 
 
     if (!username) {
-        errorMessage.category = "This field is required";
+        errorMessage.username = "This field is required";
         isFormValid = false;
     }
 
     if (!password) {
-        errorMessage.quantity = "This field is required";
+        errorMessage.password = "This field is required";
         isFormValid = false;
     }
 
     if (!reason_for_reducing) {
-        errorMessage.quantity = "This field is required";
+        errorMessage.reason_for_reducing = "This field is required";
         isFormValid = false;
     }
 
