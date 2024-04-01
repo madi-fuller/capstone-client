@@ -36,7 +36,7 @@ This page also displays the reason that user logged when they created their acco
 
 To install this project:
 1. Download the server repository https://github.com/madi-fuller/capstone-server
-2. Navigate to hte server directory and in the terminal run npm install to download node_modules
+2. Navigate to the server directory and in the terminal run npm install to download node_modules
 3. Run the command node server.js in order to run the server, it will automatically run on port 8080
 4. Downdload this repository for the client side https://github.com/madi-fuller/capstone-client
 5. Naviagte to the client directory and in the terminal run npm install to download node_modules
