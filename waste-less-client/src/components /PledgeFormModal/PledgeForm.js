@@ -10,6 +10,8 @@ function PledgeForm({ onCancel, onClose }) {
   const formRef = useRef();
   const userNameRef = useRef();
   const userReasonRef = useRef();
+  const passwordRef = useRef();
+  const usernameRef = useRef();
   const API_URL = "http://localhost:8080";
 
   const handleSubmit = (e) => {
@@ -17,6 +19,8 @@ function PledgeForm({ onCancel, onClose }) {
     const newUser = {
       name: userNameRef.current.value,
       reason_for_reducing: userReasonRef.current.value,
+      password: passwordRef.current.value,
+      username: usernameRef.current.value
     };
 
     const postNewUser = async () => {
@@ -55,6 +59,30 @@ function PledgeForm({ onCancel, onClose }) {
                 id="name"
                 placeholder="Enter your name"
                 ref={userNameRef}
+              />
+            </div>
+            <div className = "mb-3">
+            <label htmlFor="username" className="form-label">
+                Username:
+              </label>
+              <input
+                type="text"
+                className="pledge-form__input form-control "
+                id="username"
+                placeholder="Enter a username"
+                ref={usernameRef}
+              />
+            </div>
+            <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+                Password:
+              </label>
+              <input
+                type="password"
+                className="pledge-form__input form-control "
+                id="password"
+                placeholder="Enter a password"
+                ref={passwordRef}
               />
             </div>
             <div className="mb-3">
