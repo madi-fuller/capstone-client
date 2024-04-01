@@ -3,6 +3,8 @@ import planet from "../../assets/images/happy-planet.png";
 import { useRef, useState } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import ValidateSignupForm from "../../utils/SignUpValidator";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 function PledgeForm({ onCancel, onClose }) {
   const [submitted, setSubmitted] = useState(false);
