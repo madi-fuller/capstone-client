@@ -6,26 +6,24 @@ import { useEffect, useState } from "react";
 function WasteTips() {
   const [wasteTips, setWasteTips] = useState([]);
 
-  
-    const getTips = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:8080/api/waste-tips/"
-        );
-        setWasteTips(response.data);
-      } catch (error) {
-        console.error("Error getting tips", error);
-      }
-    };
+  //get tips from backend server
+  const getTips = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/api/waste-tips/");
+      setWasteTips(response.data);
+    } catch (error) {
+      console.error("Error getting tips", error);
+    }
+  };
 
-    useEffect(() => {
+  useEffect(() => {
     getTips();
-
-  
   }, []);
+
+  //load 3 new tips when button is clicked
   const handleClick = () => {
     getTips();
-}
+  };
 
   return (
     <div className="tips">
@@ -42,7 +40,9 @@ function WasteTips() {
             </div>
           ))}
           <div className="tips__btn-container">
-          <button onClick={handleClick} className="tips__btn">Show me More Tips!</button>
+            <button onClick={handleClick} className="tips__btn">
+              Show me More Tips!
+            </button>
           </div>
         </div>
       </div>

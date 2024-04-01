@@ -25,15 +25,15 @@
     color: black;
     text-decoration: none;
     &:hover {
-        border-bottom: solid 2px black;
+      border-bottom: solid 2px black;
     }
     &.active {
-        background-color: rgba(211, 211, 211, 0.25);
-        border-radius: 20px;
-        padding-bottom: 0.5rem;
-        &:hover {
-            border-bottom: none;
-        }
+      background-color: rgba(211, 211, 211, 0.25);
+      border-radius: 20px;
+      padding-bottom: 0.5rem;
+      &:hover {
+        border-bottom: none;
+      }
     }
   }
 }

@@ -21,11 +21,13 @@ function WasteItemsList() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [itemIdToDelete, setItemIdToDelete] = useState(null);
 
+  //show modal to confirm user wants to delete the item
   const openDeleteItem = async (itemId) => {
     setShowDeleteModal(true);
     setItemIdToDelete(itemId);
-  }
+  };
 
+  //delete the item from the database
   const deleteItem = async (itemId) => {
     const API_URL = `http://localhost:8080/api/add-waste/${itemId}`;
     try {
@@ -43,8 +45,9 @@ function WasteItemsList() {
   const handleDeleteCancel = () => {
     setShowDeleteModal(false);
     setItemIdToDelete(null);
-  }
+  };
 
+  //show waste log items to the user
   useEffect(() => {
     const API_URL = "http://localhost:8080/api/add-waste";
     const getWasteItems = async () => {
@@ -58,8 +61,7 @@ function WasteItemsList() {
     getWasteItems();
   }, []);
 
-
-
+  //display environmental impacts when the item name is clicked
   const handleItemClick = async (itemName) => {
     try {
       const response = await axios.get(
@@ -78,6 +80,7 @@ function WasteItemsList() {
     setShowEnvironmentData(false);
   };
 
+  //display the appropriate icon based on the category of the item
   const categoryIcons = {
     fruit: fruitIcon,
     vegetable: vegetableIcon,
@@ -92,15 +95,18 @@ function WasteItemsList() {
     return categoryIcons[category.toLowerCase()] || "";
   };
 
+  //display the date to the user in day/month/date formate
   const changeToDate = (timestamp) => {
     const date = new Date(timestamp);
     const options = { weekday: "long", month: "long", day: "numeric" };
     return date.toLocaleString("en-US", options);
   };
 
+  //show the items from newest to oldest
+
   const sortedWasteItems = [...wasteItem].sort((a, b) => {
     return new Date(b.created_at) - new Date(a.created_at);
-    });
+  });
 
   return (
     <section className="waste-log">
@@ -133,9 +139,9 @@ function WasteItemsList() {
                   </div>
                   <div className="waste-log__quantity-container">
                     <p className="waste-log__subtitle">Quantity:</p>
-                   
+
                     <p className="waste-log__quantity card-text">
-                      {item.quantity} 
+                      {item.quantity}
                     </p>
                     <p className="waste-log__quantity card-text">{item.unit}</p>
                   </div>
@@ -167,10 +173,11 @@ function WasteItemsList() {
         />
       )}
       {showDeleteModal && (
-        <DeleteModal onDelete={deleteItem}
-        onCancel={handleDeleteCancel}
-        itemIdToDelete={itemIdToDelete} />
-        
+        <DeleteModal
+          onDelete={deleteItem}
+          onCancel={handleDeleteCancel}
+          itemIdToDelete={itemIdToDelete}
+        />
       )}
     </section>
   );

@@ -8,7 +8,10 @@ function DisplayUserData() {
       <h2 className="user-data__title">Your reason for reducing waste: </h2>
       <div className="user-data__container">
         <div className="user-data__reason">
-          <p className="user-data__reason-text">Reduce my carbon footprint by limiting the amount of resources are used for food that don't end up being consumed</p>
+          <p className="user-data__reason-text">
+            Reduce my carbon footprint by limiting the amount of resources
+            used for food that don't end up being consumed
+          </p>
         </div>
       </div>
     </div>

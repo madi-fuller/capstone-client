@@ -7,11 +7,10 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import axios from "axios";
 
 function AddWasteItem({ onCancel, onClose }) {
-
   const [invalidInput, setInvalidInput] = useState({
     name: "",
     category: "",
-    quantity: ""
+    quantity: "",
   });
 
   const formRef = useRef();
@@ -41,11 +40,13 @@ function AddWasteItem({ onCancel, onClose }) {
         console.error("There has been an error adding an item", error);
       }
     };
+
+    //check if form is valid before submitting and closing modal
     const isFormValid = ValidateAddForm(newItemData).isFormValid;
 
-    if(isFormValid){
-    postNewItem();
-    window.location.reload()
+    if (isFormValid) {
+      postNewItem();
+      window.location.reload();
     }
 
     const errorMessage = ValidateAddForm(newItemData).errorMessage;
@@ -96,7 +97,7 @@ function AddWasteItem({ onCancel, onClose }) {
                   <option value="Grain">Grain</option>
                   <option value="Other">Other</option>
                 </select>
-                <ErrorMessage message={invalidInput.category}/>
+                <ErrorMessage message={invalidInput.category} />
               </div>
               <div class="mb-3">
                 <label className="form-label"> Quantity</label>
@@ -119,7 +120,7 @@ function AddWasteItem({ onCancel, onClose }) {
                   class="add-item__input form-control"
                   placeholder="Quantity ..."
                 />
-                <ErrorMessage message={invalidInput.quantity}/>
+                <ErrorMessage message={invalidInput.quantity} />
               </div>
               <div class="mb-3">
                 <label for="datePicker" class="form-label">
@@ -132,10 +133,7 @@ function AddWasteItem({ onCancel, onClose }) {
                 />
               </div>
               <div className="add-item__footer-container">
-                <button
-                  type="submit"
-                  class="add-item__btn btn btn-primary"
-                >
+                <button type="submit" class="add-item__btn btn btn-primary">
                   Add Item
                 </button>
                 <button

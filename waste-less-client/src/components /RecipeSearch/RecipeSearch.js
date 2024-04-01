@@ -4,6 +4,7 @@ import "./RecipeSearch.scss";
 function RecipeSearch({ setSearchResult }) {
   const [searchIngredient, setSearchIngredient] = useState("");
 
+  //search the recipe based on the ingredient from the search bar
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchResult(searchIngredient);

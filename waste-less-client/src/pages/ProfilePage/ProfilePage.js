@@ -25,10 +25,9 @@ function ProfilePage() {
             <WasteOverTime />
           </div>
           <div className="profile__carbon-data">
-          <C02Emissions />
+            <C02Emissions />
+          </div>
         </div>
-        </div>
-        
       </div>
     </div>
   );

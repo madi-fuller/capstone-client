@@ -1,6 +1,5 @@
 .homepage {
   height: 100vh;
-  
 
   &__hero-container {
     height: 700px;
@@ -29,12 +28,12 @@
     font-weight: 600;
     line-height: 2.5rem;
   }
-  //maybe make this all under one __hero
+
   &__hero-button {
     border-radius: 20px;
     border: none;
     padding: 0.5rem 1rem;
-    background-color: #187F5A;
+    background-color: #187f5a;
     font-size: 1.5rem;
     color: white;
     font-weight: 600;
@@ -44,7 +43,7 @@
     border-radius: 20px;
     border: none;
     padding: 0.5rem 1rem;
-    background-color: #187F5A;
+    background-color: #187f5a;
     font-size: 1.5rem;
     color: white;
     font-weight: 600;

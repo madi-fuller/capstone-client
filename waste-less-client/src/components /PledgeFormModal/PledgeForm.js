@@ -12,7 +12,7 @@ function PledgeForm({ onCancel, onClose }) {
     name: "",
     username: "",
     password: "",
-    reason_for_reducing: ""
+    reason_for_reducing: "",
   });
 
   const formRef = useRef();
@@ -22,13 +22,14 @@ function PledgeForm({ onCancel, onClose }) {
   const usernameRef = useRef();
   const API_URL = "http://localhost:8080";
 
+  //take values from signup form and create an account with them
   const handleSubmit = (e) => {
     e.preventDefault();
     const newUser = {
       name: userNameRef.current.value,
       reason_for_reducing: userReasonRef.current.value,
       password: passwordRef.current.value,
-      username: usernameRef.current.value
+      username: usernameRef.current.value,
     };
 
     const postNewUser = async () => {
@@ -40,9 +41,10 @@ function PledgeForm({ onCancel, onClose }) {
       }
     };
 
+    //show user error messages if any fields are left blank
     const isFormValid = ValidateSignupForm(newUser).isFormValid;
 
-    if(isFormValid) {
+    if (isFormValid) {
       postNewUser();
     }
 
@@ -77,8 +79,8 @@ function PledgeForm({ onCancel, onClose }) {
               />
               <ErrorMessage message={invalidInput.name} />
             </div>
-            <div className = "mb-3">
-            <label htmlFor="username" className="form-label">
+            <div className="mb-3">
+              <label htmlFor="username" className="form-label">
                 Username:
               </label>
               <input
@@ -91,7 +93,7 @@ function PledgeForm({ onCancel, onClose }) {
               <ErrorMessage message={invalidInput.username} />
             </div>
             <div className="mb-3">
-            <label htmlFor="password" className="form-label">
+              <label htmlFor="password" className="form-label">
                 Password:
               </label>
               <input

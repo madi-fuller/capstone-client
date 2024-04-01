@@ -1,63 +1,62 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
 .add-item {
-    width: 40%;
-    margin: 0 auto;
-    padding: 2rem;
-    @include modal-background;
+  width: 40%;
+  margin: 0 auto;
+  padding: 2rem;
+  @include modal-background;
 
-    &__container{
-        @include modal;
-        padding-top: 1rem;
+  &__container {
+    @include modal;
+    padding-top: 1rem;
 
-        &-header {
-            display: flex;
-            justify-content: flex-end;
-        }
+    &-header {
+      display: flex;
+      justify-content: flex-end;
     }
+  }
 
-    &__close {
-        cursor: pointer;
+  &__close {
+    cursor: pointer;
+  }
+
+  &__planet {
+    height: 4rem;
+  }
+
+  &__image-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title {
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    color: $DarkGreen;
+  }
+
+  &__subtitle {
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__input {
+    border-color: $DarkGreen;
+    text-transform: capitalize;
+  }
+
+  &__footer-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btn {
+    @include button-submit;
+
+    &--cancel {
+      @include button-cancel;
     }
-
-    &__planet {
-        height: 4rem;
-    }
-
-    &__image-container {
-        display: flex;
-        justify-content: center;
-
-    }
-
-    &__title {
-        font-weight: 900;
-        display: flex;
-        justify-content: center;
-        color: $DarkGreen;
-    }
-
-    &__subtitle {
-        font-weight: 600;
-        display: flex;
-        justify-content: center;
-    }
-
-    &__input {
-        border-color: $DarkGreen;
-        text-transform: capitalize;
-    }
-
-    &__footer-container {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    &__btn {
-        @include button-submit;
-
-        &--cancel {
-            @include button-cancel;
-        }
-    }
+  }
 }

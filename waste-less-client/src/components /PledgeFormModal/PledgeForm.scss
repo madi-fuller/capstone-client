@@ -23,7 +23,7 @@
     @include modal-background;
 
     &-container {
-     @include modal;
+      @include modal;
       width: 30em;
     }
 
@@ -62,6 +62,6 @@
   }
 
   &__link {
-   margin-bottom: 0;
+    margin-bottom: 0;
   }
 }

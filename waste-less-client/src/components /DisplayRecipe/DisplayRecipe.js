@@ -7,6 +7,8 @@ function DisplayRecipe({ searchResult }) {
   const [randomIndex, setRandomIndex] = useState(null);
   const [message, setMessage] = useState("");
 
+  //use the ingredient searched as a parameter for the get request to the recipe API
+
   useEffect(() => {
     const getRecipe = async () => {
       try {
@@ -16,26 +18,35 @@ function DisplayRecipe({ searchResult }) {
             `https://api.edamam.com/api/recipes/v2?type=public&q=${searchResult}&app_id=b23e228a&app_key=08189e92308af246c491688c4b1739be`
           );
           setMessage("");
+          //load a recipe on page mount based on what ingredient is wasted the most
         } else {
           const mostWastedItemResponse = await axios.get(
             "http://localhost:8080/api/add-waste/recipe"
           );
           const mostWastedItem = mostWastedItemResponse.data;
 
-          if (mostWastedItem && mostWastedItem !=="") {
+          if (mostWastedItem && mostWastedItem !== "") {
             response = await axios.get(
               `https://api.edamam.com/api/recipes/v2?type=public&q=${mostWastedItem}&app_id=b23e228a&app_key=08189e92308af246c491688c4b1739be`
             );
             setMessage(
               `You've wasted ${mostWastedItem} the most. Next time try this recipe out:`
             );
+
+            //if there is no ingredient that has been wasted the most load a recipe for a random ingredient from the log
           } else {
-            const wasteItemsResponse = await axios.get("http://localhost:8080/api/waste-items");
+            const wasteItemsResponse = await axios.get(
+              "http://localhost:8080/api/waste-items"
+            );
             const wasteItems = wasteItemsResponse.data;
             const randomIndex = Math.floor(Math.random() * wasteItems.length);
             const randomWasteItem = wasteItems[randomIndex];
-            response = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${randomWasteItem.name}&app_id=b23e228a&app_key=08189e92308af246c491688c4b1739be`);
-            setMessage(`You recently threw away ${wasteItems}. Here is a recipe using that ingredient for next time!`);
+            response = await axios.get(
+              `https://api.edamam.com/api/recipes/v2?type=public&q=${randomWasteItem.name}&app_id=b23e228a&app_key=08189e92308af246c491688c4b1739be`
+            );
+            setMessage(
+              `You recently threw away ${wasteItems}. Here is a recipe using that ingredient for next time!`
+            );
           }
         }
         setData(response.data);
