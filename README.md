@@ -35,7 +35,7 @@ This page also displays the reason that user logged when they created their acco
 ### Installation
 
 To install this project:
-1. Download the server repository https://github.com/madi-fuller/capstone-server
+1. Download the server repository https://github.com/madi-fuller/wasteless-server
 2. Navigate to the server directory and in the terminal run npm install to download node_modules
 3. Run the command node server.js in order to run the server, it will automatically run on port 8080
 4. Downdload this repository for the client side https://github.com/madi-fuller/capstone-client
